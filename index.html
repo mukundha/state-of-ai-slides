@@ -425,7 +425,29 @@ body:hover { cursor: default; }
 
 <div class="slide" data-section="s1">
   <span class="label">1947 — Bell Labs</span>
-  <h1>The Transistor</h1>
+  <div class="diagram">
+    <svg width="200" height="180" viewBox="0 0 200 180">
+      <!-- Transistor symbol (NPN BJT) -->
+      <!-- Base line -->
+      <line x1="40" y1="90" x2="80" y2="90" stroke="#818cf8" stroke-width="2.5"/>
+      <!-- Vertical bar (base contact) -->
+      <line x1="80" y1="50" x2="80" y2="130" stroke="#818cf8" stroke-width="3"/>
+      <!-- Collector -->
+      <line x1="80" y1="65" x2="130" y2="30" stroke="#818cf8" stroke-width="2.5"/>
+      <line x1="130" y1="30" x2="130" y2="10" stroke="#818cf8" stroke-width="2.5"/>
+      <!-- Emitter with arrow -->
+      <line x1="80" y1="115" x2="130" y2="150" stroke="#818cf8" stroke-width="2.5"/>
+      <line x1="130" y1="150" x2="130" y2="170" stroke="#818cf8" stroke-width="2.5"/>
+      <polygon points="115,142 130,150 120,133" fill="#818cf8"/>
+      <!-- Circle -->
+      <circle cx="100" cy="90" r="50" fill="none" stroke="rgba(129,140,248,0.25)" stroke-width="1.5"/>
+      <!-- Labels -->
+      <text x="25" y="94" fill="#6b7280" font-family="Inter" font-size="11" text-anchor="end">B</text>
+      <text x="140" y="14" fill="#6b7280" font-family="Inter" font-size="11">C</text>
+      <text x="140" y="174" fill="#6b7280" font-family="Inter" font-size="11">E</text>
+    </svg>
+  </div>
+  <h1 class="gap-sm">The Transistor</h1>
 </div>
 
 <div class="slide" data-section="s1">
@@ -439,8 +461,35 @@ body:hover { cursor: default; }
 
 <div class="slide" data-section="s1">
   <span class="label">Logic Gates</span>
-  <h1>AND &nbsp; OR &nbsp; NOT</h1>
-  <p class="gap dim">Universal building blocks of computation</p>
+  <div class="diagram">
+    <svg width="520" height="140" viewBox="0 0 520 140">
+      <!-- AND gate -->
+      <g transform="translate(20,20)">
+        <line x1="0" y1="30" x2="30" y2="30" stroke="#818cf8" stroke-width="2"/>
+        <line x1="0" y1="70" x2="30" y2="70" stroke="#818cf8" stroke-width="2"/>
+        <path d="M30,15 L30,85 L60,85 A35,35 0 0,0 60,15 Z" fill="none" stroke="#818cf8" stroke-width="2"/>
+        <line x1="95" y1="50" x2="125" y2="50" stroke="#818cf8" stroke-width="2"/>
+        <text x="62" y="110" fill="#f0f0f2" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">AND</text>
+      </g>
+      <!-- OR gate -->
+      <g transform="translate(190,20)">
+        <line x1="0" y1="30" x2="35" y2="30" stroke="#818cf8" stroke-width="2"/>
+        <line x1="0" y1="70" x2="35" y2="70" stroke="#818cf8" stroke-width="2"/>
+        <path d="M25,15 Q45,50 25,85 Q65,85 90,50 Q65,15 25,15 Z" fill="none" stroke="#818cf8" stroke-width="2"/>
+        <line x1="90" y1="50" x2="125" y2="50" stroke="#818cf8" stroke-width="2"/>
+        <text x="62" y="110" fill="#f0f0f2" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">OR</text>
+      </g>
+      <!-- NOT gate -->
+      <g transform="translate(370,20)">
+        <line x1="0" y1="50" x2="30" y2="50" stroke="#818cf8" stroke-width="2"/>
+        <polygon points="30,15 30,85 90,50" fill="none" stroke="#818cf8" stroke-width="2"/>
+        <circle cx="96" cy="50" r="6" fill="none" stroke="#818cf8" stroke-width="2"/>
+        <line x1="102" y1="50" x2="130" y2="50" stroke="#818cf8" stroke-width="2"/>
+        <text x="65" y="110" fill="#f0f0f2" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">NOT</text>
+      </g>
+    </svg>
+  </div>
+  <p class="gap-sm dim small">Universal building blocks of computation</p>
 </div>
 
 <div class="slide" data-section="s1">
@@ -467,19 +516,6 @@ body:hover { cursor: default; }
     <div class="flow-item active-item">CPU</div>
   </div>
   <p class="gap dim small">Code is data. Data is code. Same memory.</p>
-</div>
-
-<div class="slide" data-section="s1">
-  <span class="label">The CPU Cycle</span>
-  <div class="flow">
-    <div class="flow-item">Fetch</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">Decode</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">Execute</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">Store</div>
-  </div>
 </div>
 
 <div class="slide" data-section="s1">
@@ -510,18 +546,31 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s1">
-  <div class="flow" style="gap:8px;">
-    <div class="flow-item">OS</div>
+  <div class="flow" style="gap:10px;">
+    <div class="flow-item" style="font-size:1.5rem;">🖥️</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item">Networks</div>
+    <div class="flow-item" style="font-size:1.5rem;">🔗</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item">Internet</div>
+    <div class="flow-item" style="font-size:1.5rem;">🌐</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item">Web</div>
+    <div class="flow-item" style="font-size:1.5rem;">💻</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item">Mobile</div>
+    <div class="flow-item" style="font-size:1.5rem;">📱</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item">Cloud</div>
+    <div class="flow-item" style="font-size:1.5rem;">☁️</div>
+  </div>
+  <div class="flow gap-sm" style="gap:16px;">
+    <span class="dim small" style="width:55px; text-align:center;">OS</span>
+    <span style="width:20px;"></span>
+    <span class="dim small" style="width:55px; text-align:center;">Network</span>
+    <span style="width:20px;"></span>
+    <span class="dim small" style="width:55px; text-align:center;">Internet</span>
+    <span style="width:20px;"></span>
+    <span class="dim small" style="width:55px; text-align:center;">Web</span>
+    <span style="width:20px;"></span>
+    <span class="dim small" style="width:55px; text-align:center;">Mobile</span>
+    <span style="width:20px;"></span>
+    <span class="dim small" style="width:55px; text-align:center;">Cloud</span>
   </div>
 </div>
 
@@ -531,8 +580,9 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s1">
-  <p class="dim">Billions of lines of code</p>
-  <p class="dim gap-sm">Every conditional, every loop, every function</p>
+  <h2 style="font-size:2.8rem;">~93 billion</h2>
+  <p class="gap-sm dim">lines of code written by humans every year</p>
+  <p class="dim small gap-sm">Every conditional, every loop, every function</p>
   <h2 class="gap">Hand-crafted. Explicit. Designed.</h2>
 </div>
 
@@ -555,9 +605,40 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s2">
-  <span class="label">1958</span>
-  <h1>The Perceptron</h1>
-  <p class="gap dim">Frank Rosenblatt — a machine that learns</p>
+  <span class="label">1958 — Frank Rosenblatt</span>
+  <div class="diagram">
+    <svg width="380" height="180" viewBox="0 0 380 180">
+      <!-- Input nodes -->
+      <circle cx="50" cy="40" r="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+      <text x="50" y="44" fill="#c4b5fd" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle">x₁</text>
+      <circle cx="50" cy="100" r="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+      <text x="50" y="104" fill="#c4b5fd" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle">x₂</text>
+      <circle cx="50" cy="160" r="18" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+      <text x="50" y="164" fill="#c4b5fd" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle">x₃</text>
+      <!-- Weights -->
+      <line x1="68" y1="40" x2="172" y2="90" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+      <line x1="68" y1="100" x2="172" y2="100" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+      <line x1="68" y1="160" x2="172" y2="110" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+      <text x="115" y="58" fill="#6b7280" font-family="JetBrains Mono" font-size="9">w₁</text>
+      <text x="120" y="92" fill="#6b7280" font-family="JetBrains Mono" font-size="9">w₂</text>
+      <text x="115" y="142" fill="#6b7280" font-family="JetBrains Mono" font-size="9">w₃</text>
+      <!-- Sum node -->
+      <circle cx="190" cy="100" r="22" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.5)" stroke-width="2"/>
+      <text x="190" y="104" fill="#c4b5fd" font-family="Inter" font-size="12" font-weight="600" text-anchor="middle">Σ</text>
+      <!-- Activation -->
+      <line x1="212" y1="100" x2="248" y2="100" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+      <rect x="248" y="80" width="44" height="40" rx="6" fill="rgba(139,92,246,0.1)" stroke="rgba(139,92,246,0.5)" stroke-width="1.5"/>
+      <text x="270" y="104" fill="#c4b5fd" font-family="Inter" font-size="10" font-weight="500" text-anchor="middle">step</text>
+      <!-- Output -->
+      <line x1="292" y1="100" x2="320" y2="100" stroke="rgba(139,92,246,0.35)" stroke-width="1.5"/>
+      <circle cx="340" cy="100" r="18" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.5)" stroke-width="1.5"/>
+      <text x="340" y="104" fill="#6ee7b7" font-family="Inter" font-size="11" font-weight="500" text-anchor="middle">out</text>
+      <!-- Labels -->
+      <text x="12" y="104" fill="#4b5563" font-family="Inter" font-size="9" text-anchor="end">inputs</text>
+    </svg>
+  </div>
+  <h2 class="gap-sm">The Perceptron</h2>
+  <p class="dim small gap-sm">A machine that learns — sum inputs, apply threshold, output 0 or 1</p>
 </div>
 
 <div class="slide" data-section="s2">
@@ -568,12 +649,11 @@ body:hover { cursor: default; }
 <div class="slide" data-section="s2">
   <span class="label">1969 → 1986 → 2000s</span>
   <h2>Twice, the field nearly died.</h2>
-  <p class="gap dim" style="text-align:left; max-width:560px;">
-    XOR: inputs differ → 1, same → 0. Not linearly separable.<br>
-    One perceptron can't learn it. Minsky proved this (1969) → winter.<br>
-    Backprop fixed it (1986) → but compute too slow → second winter.<br>
-    Then GPUs + internet-scale data changed everything.
-  </p>
+  <div class="gap" style="text-align:left; max-width:520px;">
+    <p class="dim" style="margin-bottom:12px; font-size:1.1rem;">XOR: inputs differ → 1, same → 0. Not linearly separable.</p>
+    <p class="dim" style="margin-bottom:12px; font-size:1.1rem;">One perceptron can't learn it. Minsky proved this (1969) → winter.</p>
+    <p class="dim" style="font-size:1.1rem;">Backprop fixed it (1986) → but compute too slow → second winter.</p>
+  </div>
 </div>
 
 <div class="slide" data-section="s2">
@@ -593,9 +673,24 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s2">
-  <span class="label">③ Algorithms</span>
-  <h1>Better Ideas</h1>
-  <p class="gap dim">Dropout. Batch Norm. ReLU.<br>Small ideas, massive impact.</p>
+  <span class="label">③ The Core Algorithm</span>
+  <h1>Backpropagation +<br>Gradient Descent</h1>
+</div>
+
+<div class="slide" data-section="s2">
+  <h2>A way to answer one question:</h2>
+  <h2 class="gap-sm accent">How should I change each weight<br>to make the output less wrong?</h2>
+</div>
+
+<div class="slide" data-section="s2">
+  <p class="dim small" style="max-width:480px; text-align:center;">Plus a toolkit of accelerants that made deep nets practical:</p>
+  <div class="flow gap" style="gap:8px; margin-top:16px;">
+    <div class="flow-item" style="font-size:0.85rem;">ReLU</div>
+    <div class="flow-item" style="font-size:0.85rem;">Dropout</div>
+    <div class="flow-item" style="font-size:0.85rem;">BatchNorm</div>
+    <div class="flow-item" style="font-size:0.85rem;">Adam</div>
+    <div class="flow-item" style="font-size:0.85rem;">Skip Connections</div>
+  </div>
 </div>
 
 <div class="slide" data-section="s2">
@@ -609,18 +704,9 @@ body:hover { cursor: default; }
 
 <div class="slide" data-section="s2">
   <span class="label">2019 — Rich Sutton</span>
-  <h1>The Bitter Lesson</h1>
-</div>
-
-<div class="slide" data-section="s2">
-  <p class="quote">"General methods that leverage computation<br>are ultimately the most effective."</p>
-  <p class="quote-attr">— Rich Sutton</p>
-</div>
-
-<div class="slide" data-section="s2">
-  <h2>Search + Learning + Scale</h2>
-  <h2 class="gap accent">beats hand-crafted rules</h2>
-  <p class="gap dim">Chess, vision, speech, translation — every time.<br>It feels wrong to ignore domain expertise. That's why it's bitter.</p>
+  <h2>The Bitter Lesson</h2>
+  <p class="gap" style="font-size:1.15rem; font-style:italic; color:var(--dim); max-width:600px;">"Search + learning + scale beats hand-crafted rules."</p>
+  <p class="gap-sm dim small" style="max-width:520px;">Chess, vision, speech, translation — every time someone tried<br>to encode human knowledge, brute-force compute won.<br>It feels wrong to ignore domain expertise. That's why it's bitter.</p>
 </div>
 
 <div class="slide" data-section="s2">
@@ -732,7 +818,7 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
-  <h2>This is all of machine learning.</h2>
+  <h2>This is <em>essentially</em> all of<br>supervised machine learning.</h2>
   <p class="gap dim">Predict → Error → Gradient → Update → Repeat</p>
 </div>
 
@@ -819,7 +905,7 @@ body:hover { cursor: default; }
 
 <div class="slide" data-section="s3">
   <h2>Meaning lives in geometry.</h2>
-  <p class="gap dim">First time semantics became vectors</p>
+  <p class="gap dim">A breakthrough: semantics as vectors at scale</p>
 </div>
 
 <div class="slide" data-section="s3">
@@ -917,6 +1003,7 @@ body:hover { cursor: default; }
   <div>$$PE_{(pos, 2i)} = \sin\!\left(\frac{pos}{10000^{2i/d}}\right)$$</div>
   <div class="gap-sm">$$PE_{(pos, 2i+1)} = \cos\!\left(\frac{pos}{10000^{2i/d}}\right)$$</div>
   <p class="math-note gap">How the model knows word order</p>
+  <p class="dim" style="font-size:0.7rem; margin-top:8px;">Original Transformer used sin/cos. Modern LLMs often use <strong>RoPE</strong> (Rotary Position Embeddings).</p>
 </div>
 
 <!-- Self-Attention -->
@@ -1001,6 +1088,28 @@ body:hover { cursor: default; }
   <p class="math-note gap">$$\text{MultiHead} = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O$$</p>
 </div>
 
+<!-- Causal Masking -->
+<div class="slide" data-section="s3">
+  <span class="label">Critical Constraint</span>
+  <h1>Causal Masking</h1>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>Token <em>t</em> can only<br>attend to tokens <span class="accent">before it</span>.</h2>
+  <p class="gap dim">No peeking at the future — otherwise the answer leaks into the question.</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <div style="font-family:'JetBrains Mono',monospace; font-size:1rem; line-height:1.8; text-align:left; display:inline-block;">
+    <span style="opacity:0.4;">         The  cat  sat  on</span><br>
+    <span>The &nbsp;</span><span class="accent">✓</span><span style="opacity:0.3;"> &nbsp; ✗ &nbsp; ✗ &nbsp; ✗</span><br>
+    <span>cat &nbsp;</span><span class="accent">✓ &nbsp; ✓</span><span style="opacity:0.3;"> &nbsp; ✗ &nbsp; ✗</span><br>
+    <span>sat &nbsp;</span><span class="accent">✓ &nbsp; ✓ &nbsp; ✓</span><span style="opacity:0.3;"> &nbsp; ✗</span><br>
+    <span>on &nbsp; </span><span class="accent">✓ &nbsp; ✓ &nbsp; ✓ &nbsp; ✓</span>
+  </div>
+  <p class="gap dim small">Lower-triangular mask — each row sees only what came before</p>
+</div>
+
 <!-- FFN -->
 <div class="slide" data-section="s3">
   <span class="label">Sub-problem 5</span>
@@ -1066,6 +1175,17 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
+  <span class="label">Key Insight</span>
+  <h2>Self-supervision</h2>
+  <p class="gap dim">The labels come from the text itself.</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2 style="font-size:1.8rem;">"The cat sat on the <span class="accent" style="border-bottom:2px solid var(--accent);">&nbsp;&nbsp;___&nbsp;&nbsp;</span>"</h2>
+  <p class="gap dim">No human needs to label this.<br>The next word <em>is</em> the label. The internet gives you trillions of them.</p>
+</div>
+
+<div class="slide" data-section="s3">
   <h2>Why is next-token prediction<br>enough?</h2>
 </div>
 
@@ -1086,8 +1206,8 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
-  <h1 class="highlight">Compression ≈ Intelligence</h1>
-  <p class="gap dim small">To compress well, you must model the world</p>
+  <h1 class="highlight">Compression ≈ Understanding</h1>
+  <p class="gap dim small">One hypothesis: to compress well, you must model the world</p>
 </div>
 
 <!-- === 3d: Memory Taxonomy === -->
@@ -1285,7 +1405,7 @@ body:hover { cursor: default; }
     <div class="flow-item">Claude Opus 4.6</div>
     <div class="flow-item">Gemini 3.1</div>
   </div>
-  <p class="gap dim small">Same model. More thinking. Dramatically better answers.</p>
+  <p class="gap dim small">Same weights. More inference compute. Often dramatically better answers.</p>
 </div>
 
 <div class="slide" data-section="s3">
@@ -1440,50 +1560,45 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s4">
-  <span class="label">Evolution</span>
-  <div class="flow" style="gap:6px;">
-    <div class="flow-item">RAG</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">CoT</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">Tools</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">MCP</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item">A2A</div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-item active-item">Skills + Harness</div>
+  <span class="label">The Agent Stack</span>
+  <div style="display:flex; flex-direction:column; gap:0; align-items:center; margin-top:16px;">
+    <div style="background:var(--s4); color:#fff; padding:10px 48px; border-radius:8px 8px 0 0; font-weight:700; font-size:0.95rem; width:320px; text-align:center;">Evals & Ops</div>
+    <div style="background:rgba(236,72,153,0.25); border:1px solid var(--s4); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Orchestration / Harness</div>
+    <div style="background:rgba(236,72,153,0.15); border:1px solid rgba(236,72,153,0.3); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Tools & Protocols <span class="dim" style="font-size:0.75rem;">(MCP, A2A)</span></div>
+    <div style="background:rgba(236,72,153,0.10); border:1px solid rgba(236,72,153,0.2); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Retrieval <span class="dim" style="font-size:0.75rem;">(RAG, embeddings)</span></div>
+    <div style="background:rgba(236,72,153,0.05); border:1px solid rgba(236,72,153,0.15); padding:10px 48px; border-radius:0 0 8px 8px; font-size:0.95rem; width:320px; text-align:center;">Prompting <span class="dim" style="font-size:0.75rem;">(CoT, few-shot)</span></div>
   </div>
+  <p class="gap dim small">Not a linear evolution — a stack. Each layer adds capability.</p>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>RAG</h2>
+  <span class="label">Layer 1</span>
+  <h2>Prompting</h2>
+  <p class="gap dim">Chain-of-thought, few-shot examples.<br>Teach the model to reason step by step.</p>
+</div>
+
+<div class="slide" data-section="s4">
+  <span class="label">Layer 2</span>
+  <h2>Retrieval (RAG)</h2>
   <p class="gap dim">Give the model external knowledge.<br>Retrieve → Augment → Generate.</p>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>Chain-of-Thought / Few-Shot</h2>
-  <p class="gap dim">Teach it to reason step by step.<br>Show it examples.</p>
+  <span class="label">Layer 3</span>
+  <h2>Tools & Protocols</h2>
+  <p class="gap dim">Function calling, MCP ("USB-C for AI"), A2A.<br>Let agents use tools and talk to each other.</p>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>Function Calling</h2>
-  <p class="gap dim">Let the model use tools.<br>Search, calculate, query databases.</p>
+  <span class="label">Layer 4</span>
+  <h2>Orchestration</h2>
+  <p class="gap dim">The harness that ties it together.<br>Skills, planning, memory, failure recovery.</p>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>MCP</h2>
-  <p class="gap dim">Model Context Protocol — a standard for tools<br>"USB-C for AI"</p>
-</div>
-
-<div class="slide" data-section="s4">
-  <h2>Multi-Agent / A2A</h2>
-  <p class="gap dim">Agents collaborating. Agent-to-Agent protocol.</p>
-</div>
-
-<div class="slide" data-section="s4">
-  <h2>Skills + Harness</h2>
-  <p class="gap dim">Everything is a skill.<br>The harness orchestrates.</p>
+  <span class="label">Layer 5</span>
+  <h2>Evals & Ops</h2>
+  <p class="gap dim">How do you know it worked?<br>Metrics, traces, guardrails, human-in-the-loop.</p>
 </div>
 
 <div class="slide" data-section="s4">
@@ -1551,44 +1666,50 @@ body:hover { cursor: default; }
   <p class="gap dim small">Any capability can be modeled this way</p>
 </div>
 
-<!-- Real Frameworks -->
+<!-- An Agent in Action -->
 <div class="slide" data-section="s4">
-  <span class="label">Real Frameworks</span>
-  <h1>How They Actually Work</h1>
+  <span class="label">Real Example</span>
+  <h1>An Agent Trace</h1>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>Claude Code</h2>
-  <p class="gap dim">Anthropic's agentic coding assistant<br>Skills, tools, extended thinking, human-in-the-loop</p>
+  <h2 style="font-size:1.3rem;">Task: "Find the cheapest flight SFO→NYC next Friday"</h2>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>OpenAI Agents SDK</h2>
-  <p class="gap dim">Lightweight agent framework<br>Agents, handoffs, guardrails</p>
+  <div class="code-block" style="font-size:0.72rem; white-space:pre; text-align:left; max-width:560px; line-height:1.5;"><span class="cm">① Think</span>
+<span class="dim">I need to search flights. Let me call the flights tool.</span>
+
+<span class="cm">② Tool call → search_flights(SFO, NYC, Mar 20)</span>
+<span style="color:#ef4444;">✗ Error: API rate limit exceeded</span>
+
+<span class="cm">③ Retry with backoff</span>
+<span class="cm">④ Tool call → search_flights(SFO, NYC, Mar 20)</span>
+<span style="color:#34d399;">✓ 12 results returned</span>
+
+<span class="cm">⑤ Think</span>
+<span class="dim">Cheapest is United $187 departing 6:05am.
+But user probably wants reasonable hours. Let me
+also surface the $203 JetBlue at 11:30am.</span>
+
+<span class="cm">⑥ Respond</span>
+<span class="str">"The cheapest is United at $187 (6:05am red-eye).
+ Best value: JetBlue $203, departs 11:30am."</span></div>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>Google ADK</h2>
-  <p class="gap dim">Agent Development Kit<br>Multi-agent, tool integration, orchestration</p>
+  <h2>Think → Act → Fail →<br>Retry → Reason → Answer</h2>
+  <p class="gap dim">This is what agents actually do.</p>
 </div>
 
 <div class="slide" data-section="s4">
-  <span class="label">It's this simple</span>
-  <div class="code-block" style="font-size:0.85rem; white-space:pre;"><span class="kw">from</span> agents <span class="kw">import</span> <span class="fn">Agent</span>, <span class="fn">Runner</span>
-
-agent = <span class="fn">Agent</span>(
-    <span class="fn">name</span>=<span class="str">"research_assistant"</span>,
-    <span class="fn">model</span>=<span class="str">"claude-sonnet-4"</span>,
-    <span class="fn">instructions</span>=<span class="str">"You are a helpful
-        research assistant."</span>,
-    <span class="fn">tools</span>=[search_tool, code_tool],
-)
-
-result = <span class="fn">Runner</span>.<span class="fn">run_sync</span>(
-    agent,
-    <span class="str">"Find recent papers on MoE"</span>
-)
-<span class="kw">print</span>(result.final_output)</div>
+  <span class="label">Frameworks</span>
+  <div class="flow" style="gap:12px;">
+    <div class="flow-item" style="font-size:0.9rem;">Claude Code</div>
+    <div class="flow-item" style="font-size:0.9rem;">OpenAI Agents SDK</div>
+    <div class="flow-item" style="font-size:0.9rem;">Google ADK</div>
+  </div>
+  <p class="gap dim small">All implement this same loop with different tradeoffs</p>
 </div>
 
 <div class="slide" data-section="s4">
@@ -1772,19 +1893,20 @@ result = <span class="fn">Runner</span>.<span class="fn">run_sync</span>(
 </div>
 
 <div class="slide" data-section="s6">
-  <h2>What can you build<br>this weekend?</h2>
+  <span class="label">3 Starter Projects</span>
+  <h2>Build this weekend:</h2>
 </div>
 
 <div class="slide" data-section="s6">
-  <h2>Capabilities come from the <span class="accent">model</span>.</h2>
+  <div style="text-align:left; display:inline-block; line-height:2.2;">
+    <p><span class="accent" style="font-weight:700;">1.</span> Fine-tune a small model on your own data <span class="dim small">(LoRA + HuggingFace)</span></p>
+    <p><span class="accent" style="font-weight:700;">2.</span> Build a RAG chatbot over a PDF corpus <span class="dim small">(embeddings + vector DB)</span></p>
+    <p><span class="accent" style="font-weight:700;">3.</span> Write an agent that uses tools to solve a task <span class="dim small">(Agent SDK + MCP)</span></p>
+  </div>
 </div>
 
 <div class="slide" data-section="s6">
-  <h2>Reliability comes from the <span class="highlight">system</span>.</h2>
-</div>
-
-<div class="slide" data-section="s6">
-  <h1 style="font-size:2.8rem;">Capabilities come from the model.<br><span class="highlight">Reliability comes from the system.</span></h1>
+  <h1 style="font-size:2.4rem;">Capabilities come from the model.<br><span class="highlight">Reliability comes from the system.</span></h1>
 </div>
 
 <div class="slide section-title" data-section="s6">
@@ -1930,7 +2052,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {left: '$$', right: '$$', display: true},
         {left: '$', right: '$', display: false},
       ],
-      throwOnError: false
+      throwOnError: false,
+      ignoredClasses: ['code-block']
     });
   }
   goTo(0);
@@ -1944,7 +2067,8 @@ window.addEventListener('load', () => {
         {left: '$$', right: '$$', display: true},
         {left: '$', right: '$', display: false},
       ],
-      throwOnError: false
+      throwOnError: false,
+      ignoredClasses: ['code-block']
     });
   }
 });
