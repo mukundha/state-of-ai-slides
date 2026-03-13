@@ -25,7 +25,98 @@
   --code-bg: #16161e;
   --font: 'Inter', -apple-system, system-ui, sans-serif;
   --mono: 'JetBrains Mono', monospace;
+  /* Semantic surface/border */
+  --surface: rgba(255,255,255,0.08);
+  --surface-dim: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.1);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.15);
+  --text-muted: rgba(255,255,255,0.25);
+  --text-faint: rgba(255,255,255,0.15);
+  --node-fill: rgba(255,255,255,0.03);
+  --node-stroke: rgba(255,255,255,0.2);
+  /* Code syntax */
+  --code-kw: #c084fc;
+  --code-fn: #818cf8;
+  --code-str: #34d399;
+  --code-cm: #4b5563;
+  --code-num: #f59e0b;
+  --code-op: #94a3b8;
+  /* Status */
+  --error: #ef4444;
+  --success: #34d399;
+  /* Canvas/SVG */
+  --canvas-text: #f0f0f2;
+  --canvas-dim: #6b7280;
+  --canvas-muted: #4b5563;
+  --canvas-annotation: #9ca3af;
+  --canvas-label: #d1d5db;
+  --grid-line: #1f2937;
+  /* Tints for SVG diagrams */
+  --tint-purple: #c4b5fd;
+  --tint-green: #6ee7b7;
+  --tint-blue: #93c5fd;
+  --tint-pink: #f9a8d4;
+  --tint-yellow: #fcd34d;
 }
+
+/* Light / projector-friendly theme */
+html.light-theme {
+  --bg: #f8f9fa;
+  --text: #1a1a2e;
+  --dim: #64748b;
+  --accent: #4f46e5;
+  --accent2: #7c3aed;
+  --s1: #2563eb;
+  --s2: #7c3aed;
+  --s3: #4f46e5;
+  --s4: #db2777;
+  --s5: #d97706;
+  --s6: #059669;
+  --code-bg: #f1f5f9;
+  --surface: rgba(0,0,0,0.06);
+  --surface-dim: rgba(0,0,0,0.03);
+  --border: rgba(0,0,0,0.12);
+  --border-subtle: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.18);
+  --text-muted: rgba(0,0,0,0.3);
+  --text-faint: rgba(0,0,0,0.2);
+  --node-fill: rgba(0,0,0,0.03);
+  --node-stroke: rgba(0,0,0,0.15);
+  --code-kw: #7c3aed;
+  --code-fn: #4f46e5;
+  --code-str: #059669;
+  --code-cm: #9ca3af;
+  --code-num: #d97706;
+  --code-op: #64748b;
+  --error: #dc2626;
+  --success: #059669;
+  --canvas-text: #1a1a2e;
+  --canvas-dim: #64748b;
+  --canvas-muted: #9ca3af;
+  --canvas-annotation: #64748b;
+  --canvas-label: #374151;
+  --grid-line: #e5e7eb;
+  --tint-purple: #7c3aed;
+  --tint-green: #059669;
+  --tint-blue: #2563eb;
+  --tint-pink: #db2777;
+  --tint-yellow: #d97706;
+}
+html.light-theme .section-title { background: radial-gradient(ellipse at center, rgba(79,70,229,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s1"] { background: radial-gradient(ellipse at center, rgba(37,99,235,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s2"] { background: radial-gradient(ellipse at center, rgba(124,58,237,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s3"] { background: radial-gradient(ellipse at center, rgba(79,70,229,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s4"] { background: radial-gradient(ellipse at center, rgba(219,39,119,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s5"] { background: radial-gradient(ellipse at center, rgba(217,119,6,0.06) 0%, transparent 70%); }
+html.light-theme .section-title[data-section="s6"] { background: radial-gradient(ellipse at center, rgba(5,150,105,0.06) 0%, transparent 70%); }
+html.light-theme .highlight {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+html.light-theme .flow-item.active-item { background: rgba(79,70,229,0.08); }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -34,6 +125,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  font-size: 18px;
   overflow: hidden;
   cursor: none;
 }
@@ -64,53 +156,53 @@ body:hover { cursor: default; }
 }
 
 .slide h1 {
-  font-size: 3.5rem;
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.03em;
-  max-width: 900px;
+  max-width: 1080px;
 }
 
 .slide h2 {
-  font-size: 2.2rem;
+  font-size: 2.7rem;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.02em;
-  max-width: 800px;
+  max-width: 960px;
 }
 
 .slide h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.4;
-  max-width: 700px;
+  max-width: 840px;
 }
 
 .slide p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 1.6;
-  max-width: 700px;
+  max-width: 840px;
 }
 
 .label {
   display: inline-block;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 16px;
-  padding: 4px 14px;
+  padding: 5px 16px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.08);
+  background: var(--surface);
 }
 
 .dim { color: var(--dim); }
 .accent { color: var(--accent); }
 .accent2 { color: var(--accent2); }
-.small { font-size: 1rem !important; }
-.large { font-size: 5rem !important; font-weight: 800; }
-.huge { font-size: 7rem !important; font-weight: 900; letter-spacing: -0.04em; }
+.small { font-size: 1.2rem !important; }
+.large { font-size: 6rem !important; font-weight: 800; }
+.huge { font-size: 8.5rem !important; font-weight: 900; letter-spacing: -0.04em; }
 .gap { margin-top: 24px; }
 .gap-lg { margin-top: 40px; }
 .gap-sm { margin-top: 12px; }
@@ -134,7 +226,7 @@ body:hover { cursor: default; }
 .section-title[data-section="s6"] { background: radial-gradient(ellipse at center, rgba(16,185,129,0.08) 0%, transparent 70%); }
 
 .section-title .section-num {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -143,16 +235,17 @@ body:hover { cursor: default; }
 }
 
 .section-title h1 {
-  font-size: 4.5rem;
+  font-size: 5.5rem;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 
 /* Math slides */
-.math-slide .katex { font-size: 2.4rem; }
-.math-slide .katex-lg { font-size: 3rem; }
+.math-slide .katex { font-size: 2.9rem; }
+.math-slide .katex-lg { font-size: 3.6rem; }
+.math-compact .katex { font-size: 2rem; }
 .math-slide .math-note {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--dim);
   margin-top: 20px;
 }
@@ -160,29 +253,29 @@ body:hover { cursor: default; }
 /* Code slides */
 .code-block {
   background: var(--code-bg);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
-  padding: 28px 36px;
+  padding: 32px 40px;
   text-align: left;
   font-family: var(--mono);
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7;
-  max-width: 700px;
+  max-width: 840px;
   width: 100%;
   overflow-x: auto;
   white-space: pre-wrap;
 }
-.code-block .kw { color: #c084fc; }
-.code-block .fn { color: #818cf8; }
-.code-block .str { color: #34d399; }
-.code-block .cm { color: #4b5563; }
-.code-block .num { color: #f59e0b; }
-.code-block .op { color: #94a3b8; }
+.code-block .kw { color: var(--code-kw); }
+.code-block .fn { color: var(--code-fn); }
+.code-block .str { color: var(--code-str); }
+.code-block .cm { color: var(--code-cm); }
+.code-block .num { color: var(--code-num); }
+.code-block .op { color: var(--code-op); }
 
 /* Viz slides */
 .viz-container {
-  width: 700px;
-  height: 380px;
+  width: 820px;
+  height: 440px;
   position: relative;
   margin-top: 20px;
 }
@@ -196,17 +289,17 @@ body:hover { cursor: default; }
 .slide-table {
   border-collapse: collapse;
   margin-top: 24px;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
 }
 .slide-table th, .slide-table td {
-  padding: 12px 28px;
+  padding: 14px 32px;
   text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid var(--border-subtle);
 }
 .slide-table th {
   font-weight: 600;
   color: var(--accent);
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -216,22 +309,22 @@ body:hover { cursor: default; }
 .flow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
 }
 .flow-item {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--surface-dim);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 0.95rem;
+  padding: 12px 24px;
+  font-size: 1.15rem;
   font-weight: 500;
 }
 .flow-arrow {
   color: var(--dim);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 .flow-item.active-item {
   border-color: var(--accent);
@@ -244,13 +337,13 @@ body:hover { cursor: default; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  max-width: 900px;
+  max-width: 1080px;
   text-align: left;
 }
-.two-col h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; }
+.two-col h3 { font-size: 1.45rem; font-weight: 600; margin-bottom: 12px; }
 .two-col ul { list-style: none; }
 .two-col li {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 300;
   padding: 6px 0;
   color: var(--dim);
@@ -266,14 +359,14 @@ body:hover { cursor: default; }
 
 /* Quote style */
 .quote {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 300;
   font-style: italic;
-  max-width: 700px;
+  max-width: 840px;
   line-height: 1.5;
 }
 .quote-attr {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--dim);
   margin-top: 16px;
   font-style: normal;
@@ -302,9 +395,9 @@ body:hover { cursor: default; }
   position: fixed;
   bottom: 16px;
   right: 24px;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.25);
+  color: var(--text-muted);
   z-index: 100;
   font-family: var(--mono);
 }
@@ -314,9 +407,9 @@ body:hover { cursor: default; }
   position: fixed;
   bottom: 16px;
   left: 24px;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.2);
+  color: var(--text-faint);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   z-index: 100;
@@ -327,8 +420,8 @@ body:hover { cursor: default; }
   position: fixed;
   top: 16px;
   right: 24px;
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.15);
+  font-size: 0.8rem;
+  color: var(--text-faint);
   z-index: 100;
   font-family: var(--mono);
   opacity: 1;
@@ -336,36 +429,87 @@ body:hover { cursor: default; }
 }
 .keys-hint.hidden { opacity: 0; }
 
+/* Theme toggle */
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  left: 24px;
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+#theme-toggle:hover { opacity: 1; }
+
 /* Inline SVG node styles */
 .node-box {
-  fill: rgba(255,255,255,0.03);
-  stroke: rgba(255,255,255,0.15);
+  fill: var(--node-fill);
+  stroke: var(--node-stroke);
   stroke-width: 1.5;
   rx: 8;
 }
 .node-text {
   fill: var(--text);
   font-family: var(--font);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   text-anchor: middle;
   dominant-baseline: central;
 }
 .node-line {
-  stroke: rgba(255,255,255,0.2);
+  stroke: var(--node-stroke);
   stroke-width: 1.5;
 }
 .node-arrow {
-  fill: rgba(255,255,255,0.2);
+  fill: var(--node-stroke);
 }
+
+/* SVG theme-aware overrides (CSS overrides SVG presentation attributes) */
+svg [stroke="#818cf8"] { stroke: var(--accent); }
+svg [fill="#818cf8"] { fill: var(--accent); }
+svg [fill="#f0f0f2"] { fill: var(--canvas-text); }
+svg [fill="#6b7280"] { fill: var(--canvas-dim); }
+svg [fill="#4b5563"] { fill: var(--canvas-muted); }
+svg [stroke="#4b5563"] { stroke: var(--canvas-muted); }
+svg [fill="#9ca3af"] { fill: var(--canvas-annotation); }
+svg [fill="#ec4899"] { fill: var(--s4); }
+svg [fill="#c4b5fd"] { fill: var(--tint-purple); }
+svg [fill="#6ee7b7"] { fill: var(--tint-green); }
+svg [fill="#93c5fd"] { fill: var(--tint-blue); }
+svg [fill="#f9a8d4"] { fill: var(--tint-pink); }
+svg [fill="#fcd34d"] { fill: var(--tint-yellow); }
+svg [fill="#d1d5db"] { fill: var(--canvas-label); }
+svg [stroke="#1f2937"] { stroke: var(--grid-line); }
+
+/* Agent stack layers */
+.stack-l1 { background: var(--s4); color: #fff; }
+.stack-l2 { background: rgba(236,72,153,0.25); border: 1px solid var(--s4); }
+.stack-l3 { background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); }
+.stack-l4 { background: rgba(236,72,153,0.10); border: 1px solid rgba(236,72,153,0.2); }
+.stack-l5 { background: rgba(236,72,153,0.05); border: 1px solid rgba(236,72,153,0.15); }
+html.light-theme .stack-l1 { background: var(--s4); color: #fff; }
+html.light-theme .stack-l2 { background: rgba(219,39,119,0.12); border-color: var(--s4); }
+html.light-theme .stack-l3 { background: rgba(219,39,119,0.08); border-color: rgba(219,39,119,0.2); }
+html.light-theme .stack-l4 { background: rgba(219,39,119,0.05); border-color: rgba(219,39,119,0.15); }
+html.light-theme .stack-l5 { background: rgba(219,39,119,0.03); border-color: rgba(219,39,119,0.1); }
 
 /* Responsive */
 @media (max-width: 768px) {
   .slide { padding: 40px 30px; }
-  .slide h1 { font-size: 2rem; }
-  .slide h2 { font-size: 1.5rem; }
-  .section-title h1 { font-size: 2.5rem; }
-  .code-block { font-size: 0.8rem; padding: 16px 20px; }
+  .slide h1 { font-size: 2.4rem; }
+  .slide h2 { font-size: 1.8rem; }
+  .section-title h1 { font-size: 3rem; }
+  .code-block { font-size: 1rem; padding: 16px 20px; }
   .viz-container { width: 95%; height: 280px; }
   .two-col { grid-template-columns: 1fr; gap: 30px; }
 }
@@ -580,17 +724,17 @@ body:hover { cursor: default; }
 
 <div class="slide" data-section="s1">
   <div class="flow" style="gap:10px;">
-    <div class="flow-item" style="font-size:1.5rem;">🖥️</div>
+    <div class="flow-item" style="font-size:1.8rem;">🖥️</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item" style="font-size:1.5rem;">🔗</div>
+    <div class="flow-item" style="font-size:1.8rem;">🔗</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item" style="font-size:1.5rem;">🌐</div>
+    <div class="flow-item" style="font-size:1.8rem;">🌐</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item" style="font-size:1.5rem;">💻</div>
+    <div class="flow-item" style="font-size:1.8rem;">💻</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item" style="font-size:1.5rem;">📱</div>
+    <div class="flow-item" style="font-size:1.8rem;">📱</div>
     <div class="flow-arrow">→</div>
-    <div class="flow-item" style="font-size:1.5rem;">☁️</div>
+    <div class="flow-item" style="font-size:1.8rem;">☁️</div>
   </div>
   <div class="flow gap-sm" style="gap:16px;">
     <span class="dim small" style="width:55px; text-align:center;">OS</span>
@@ -613,14 +757,14 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s1">
-  <h2 style="font-size:2.8rem;">~93 billion</h2>
+  <h2 style="font-size:3.4rem;">~93 billion</h2>
   <p class="gap-sm dim">lines of code written by humans every year</p>
   <p class="dim small gap-sm">Every conditional, every loop, every function</p>
   <h2 class="gap">Hand-crafted. Explicit. Designed.</h2>
 </div>
 
 <div class="slide" data-section="s1">
-  <h1 class="highlight" style="font-size:3rem;">What if we stopped writing rules?</h1>
+  <h1 class="highlight" style="font-size:3.6rem;">What if we stopped writing rules?</h1>
 </div>
 
 <div class="slide" data-section="s1">
@@ -683,9 +827,9 @@ body:hover { cursor: default; }
   <span class="label">1969 → 1986 → 2000s</span>
   <h2>Twice, the field nearly died.</h2>
   <div class="gap" style="text-align:left; max-width:520px;">
-    <p class="dim" style="margin-bottom:12px; font-size:1.1rem;">XOR: inputs differ → 1, same → 0. Not linearly separable.</p>
-    <p class="dim" style="margin-bottom:12px; font-size:1.1rem;">One perceptron can't learn it. Minsky proved this (1969) → winter.</p>
-    <p class="dim" style="font-size:1.1rem;">Backprop fixed it (1986) → but compute too slow → second winter.</p>
+    <p class="dim" style="margin-bottom:12px; font-size:1.35rem;">XOR: inputs differ → 1, same → 0. Not linearly separable.</p>
+    <p class="dim" style="margin-bottom:12px; font-size:1.35rem;">One perceptron can't learn it. Minsky proved this (1969) → winter.</p>
+    <p class="dim" style="font-size:1.35rem;">Backprop fixed it (1986) → but compute too slow → second winter.</p>
   </div>
 </div>
 
@@ -718,11 +862,11 @@ body:hover { cursor: default; }
 <div class="slide" data-section="s2">
   <p class="dim small" style="max-width:480px; text-align:center;">Plus a toolkit of accelerants that made deep nets practical:</p>
   <div class="flow gap" style="gap:8px; margin-top:16px;">
-    <div class="flow-item" style="font-size:0.85rem;">ReLU</div>
-    <div class="flow-item" style="font-size:0.85rem;">Dropout</div>
-    <div class="flow-item" style="font-size:0.85rem;">BatchNorm</div>
-    <div class="flow-item" style="font-size:0.85rem;">Adam</div>
-    <div class="flow-item" style="font-size:0.85rem;">Skip Connections</div>
+    <div class="flow-item" style="font-size:1.05rem;">ReLU</div>
+    <div class="flow-item" style="font-size:1.05rem;">Dropout</div>
+    <div class="flow-item" style="font-size:1.05rem;">BatchNorm</div>
+    <div class="flow-item" style="font-size:1.05rem;">Adam</div>
+    <div class="flow-item" style="font-size:1.05rem;">Skip Connections</div>
   </div>
 </div>
 
@@ -732,13 +876,13 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s2">
-  <h1 class="highlight" style="font-size:4rem;">Deep learning works.</h1>
+  <h1 class="highlight" style="font-size:4.8rem;">Deep learning works.</h1>
 </div>
 
 <div class="slide" data-section="s2">
   <span class="label">2019 — Rich Sutton</span>
   <h2>The Bitter Lesson</h2>
-  <p class="gap" style="font-size:1.15rem; font-style:italic; color:var(--dim); max-width:600px;">"Search + learning + scale beats hand-crafted rules."</p>
+  <p class="gap" style="font-size:1.4rem; font-style:italic; color:var(--dim); max-width:720px;">"Search + learning + scale beats hand-crafted rules."</p>
   <p class="gap-sm dim small" style="max-width:520px;">Chess, vision, speech, translation — every time someone tried<br>to encode human knowledge, brute-force compute won.<br>It feels wrong to ignore domain expertise. That's why it's bitter.</p>
 </div>
 
@@ -746,11 +890,11 @@ body:hover { cursor: default; }
   <div class="two-col" style="text-align:center;">
     <div>
       <h3 style="color:var(--dim);">Old Intelligence</h3>
-      <p style="font-size:1.1rem;">Humans specify <strong>rules</strong></p>
+      <p style="font-size:1.35rem;">Humans specify <strong>rules</strong></p>
     </div>
     <div>
       <h3 style="color:var(--accent);">New Intelligence</h3>
-      <p style="font-size:1.1rem;">Humans specify <strong>objective</strong> +<br><strong>architecture</strong> + <strong>data</strong></p>
+      <p style="font-size:1.35rem;">Humans specify <strong>objective</strong> +<br><strong>architecture</strong> + <strong>data</strong></p>
     </div>
   </div>
 </div>
@@ -1036,7 +1180,7 @@ body:hover { cursor: default; }
   <div>$$PE_{(pos, 2i)} = \sin\!\left(\frac{pos}{10000^{2i/d}}\right)$$</div>
   <div class="gap-sm">$$PE_{(pos, 2i+1)} = \cos\!\left(\frac{pos}{10000^{2i/d}}\right)$$</div>
   <p class="math-note gap">How the model knows word order</p>
-  <p class="dim" style="font-size:0.7rem; margin-top:8px;">Original Transformer used sin/cos. Modern LLMs often use <strong>RoPE</strong> (Rotary Position Embeddings).</p>
+  <p class="dim" style="font-size:0.85rem; margin-top:8px;">Original Transformer used sin/cos. Modern LLMs often use <strong>RoPE</strong> (Rotary Position Embeddings).</p>
 </div>
 
 <!-- Self-Attention -->
@@ -1072,26 +1216,26 @@ body:hover { cursor: default; }
   <div class="katex-lg">$$\text{Attention}(Q,K,V) = \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$</div>
 </div>
 
-<div class="slide math-slide" data-section="s3">
+<div class="slide math-slide math-compact" data-section="s3">
   <span class="label">Step by step</span>
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px 40px; max-width:700px; text-align:center; margin-top:12px;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px 40px; max-width:750px; text-align:center; margin-top:8px;">
     <div>
-      <p style="font-size:0.8rem; color:var(--accent); font-weight:600; margin-bottom:8px;">1. Similarity</p>
+      <p style="font-size:1rem; color:var(--accent); font-weight:600; margin-bottom:8px;">1. Similarity</p>
       <div>$$QK^\top$$</div>
       <p class="math-note" style="margin-top:4px;">How much does each token relate?</p>
     </div>
     <div>
-      <p style="font-size:0.8rem; color:var(--accent); font-weight:600; margin-bottom:8px;">2. Scale</p>
+      <p style="font-size:1rem; color:var(--accent); font-weight:600; margin-bottom:8px;">2. Scale</p>
       <div>$$\frac{QK^\top}{\sqrt{d_k}}$$</div>
       <p class="math-note" style="margin-top:4px;">Prevent values exploding</p>
     </div>
     <div>
-      <p style="font-size:0.8rem; color:var(--accent); font-weight:600; margin-bottom:8px;">3. Normalize</p>
+      <p style="font-size:1rem; color:var(--accent); font-weight:600; margin-bottom:8px;">3. Normalize</p>
       <div>$$\text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)$$</div>
       <p class="math-note" style="margin-top:4px;">Convert to attention weights</p>
     </div>
     <div>
-      <p style="font-size:0.8rem; color:var(--accent); font-weight:600; margin-bottom:8px;">4. Aggregate</p>
+      <p style="font-size:1rem; color:var(--accent); font-weight:600; margin-bottom:8px;">4. Aggregate</p>
       <div>$$\text{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$</div>
       <p class="math-note" style="margin-top:4px;">Weighted sum → output</p>
     </div>
@@ -1133,12 +1277,12 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
-  <div style="display:inline-grid; grid-template-columns:50px repeat(4, 44px); gap:2px 0; font-family:'JetBrains Mono',monospace; font-size:0.95rem; text-align:center; align-items:center;">
+  <div style="display:inline-grid; grid-template-columns:50px repeat(4, 44px); gap:2px 0; font-family:'JetBrains Mono',monospace; font-size:1.15rem; text-align:center; align-items:center;">
     <span></span>
-    <span style="opacity:0.4; font-size:0.8rem;">The</span>
-    <span style="opacity:0.4; font-size:0.8rem;">cat</span>
-    <span style="opacity:0.4; font-size:0.8rem;">sat</span>
-    <span style="opacity:0.4; font-size:0.8rem;">on</span>
+    <span style="opacity:0.4; font-size:1rem;">The</span>
+    <span style="opacity:0.4; font-size:1rem;">cat</span>
+    <span style="opacity:0.4; font-size:1rem;">sat</span>
+    <span style="opacity:0.4; font-size:1rem;">on</span>
 
     <span style="text-align:right; padding-right:8px;">The</span>
     <span class="accent">✓</span><span style="opacity:0.25;">✗</span><span style="opacity:0.25;">✗</span><span style="opacity:0.25;">✗</span>
@@ -1226,7 +1370,7 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
-  <h2 style="font-size:1.8rem;">"The cat sat on the <span class="accent" style="border-bottom:2px solid var(--accent);">&nbsp;&nbsp;___&nbsp;&nbsp;</span>"</h2>
+  <h2 style="font-size:2.2rem;">"The cat sat on the <span class="accent" style="border-bottom:2px solid var(--accent);">&nbsp;&nbsp;___&nbsp;&nbsp;</span>"</h2>
   <p class="gap dim">No human needs to label this.<br>The next word <em>is</em> the label. The internet gives you trillions of them.</p>
 </div>
 
@@ -1284,7 +1428,7 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s3">
-  <h2>Attention is <span style="color:#ef4444;">NOT</span> memory.</h2>
+  <h2>Attention is <span style="color:var(--error);">NOT</span> memory.</h2>
   <p class="gap dim small">It's a routing mechanism, not a storage mechanism.</p>
 </div>
 
@@ -1621,11 +1765,11 @@ body:hover { cursor: default; }
 <div class="slide" data-section="s4">
   <span class="label">The Agent Stack</span>
   <div style="display:flex; flex-direction:column; gap:0; align-items:center; margin-top:16px;">
-    <div style="background:var(--s4); color:#fff; padding:10px 48px; border-radius:8px 8px 0 0; font-weight:700; font-size:0.95rem; width:320px; text-align:center;">Evals & Ops</div>
-    <div style="background:rgba(236,72,153,0.25); border:1px solid var(--s4); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Orchestration / Harness</div>
-    <div style="background:rgba(236,72,153,0.15); border:1px solid rgba(236,72,153,0.3); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Tools & Protocols <span class="dim" style="font-size:0.75rem;">(MCP, A2A)</span></div>
-    <div style="background:rgba(236,72,153,0.10); border:1px solid rgba(236,72,153,0.2); padding:10px 48px; font-size:0.95rem; width:320px; text-align:center;">Retrieval <span class="dim" style="font-size:0.75rem;">(RAG, embeddings)</span></div>
-    <div style="background:rgba(236,72,153,0.05); border:1px solid rgba(236,72,153,0.15); padding:10px 48px; border-radius:0 0 8px 8px; font-size:0.95rem; width:320px; text-align:center;">Prompting <span class="dim" style="font-size:0.75rem;">(CoT, few-shot)</span></div>
+    <div class="stack-l1" style="padding:12px 52px; border-radius:8px 8px 0 0; font-weight:700; font-size:1.35rem; width:460px; text-align:center;">Evals & Ops</div>
+    <div class="stack-l2" style="padding:12px 52px; font-size:1.35rem; width:460px; text-align:center;">Orchestration / Harness</div>
+    <div class="stack-l3" style="padding:12px 52px; font-size:1.35rem; width:460px; text-align:center;">Tools & Protocols <span class="dim" style="font-size:1.05rem;">(MCP, A2A)</span></div>
+    <div class="stack-l4" style="padding:12px 52px; font-size:1.35rem; width:460px; text-align:center;">Retrieval <span class="dim" style="font-size:1.05rem;">(RAG, embeddings)</span></div>
+    <div class="stack-l5" style="padding:12px 52px; border-radius:0 0 8px 8px; font-size:1.35rem; width:460px; text-align:center;">Prompting <span class="dim" style="font-size:1.05rem;">(CoT, few-shot)</span></div>
   </div>
   <p class="gap dim small">Not a linear evolution — a stack. Each layer adds capability.</p>
 </div>
@@ -1714,19 +1858,19 @@ body:hover { cursor: default; }
 </div>
 
 <div class="slide" data-section="s4">
-  <h2 style="font-size:1.3rem;">Task: "Find the cheapest flight SFO→NYC this Friday"</h2>
+  <h2 style="font-size:1.6rem;">Task: "Find the cheapest flight SFO→NYC this Friday"</h2>
 </div>
 
 <div class="slide" data-section="s4">
-  <div class="code-block" style="font-size:0.72rem; white-space:pre; text-align:left; max-width:560px; line-height:1.5;"><span class="cm">① Think</span>
+  <div class="code-block" style="font-size:0.72rem; white-space:pre; text-align:left; max-width:680px; line-height:1.4;"><span class="cm">① Think</span>
 <span class="dim">I need to search flights. Let me call the flights tool.</span>
 
 <span class="cm">② Tool call → search_flights(SFO, NYC, Mar 13)</span>
-<span style="color:#ef4444;">✗ Error: API rate limit exceeded</span>
+<span style="color:var(--error);">✗ Error: API rate limit exceeded</span>
 
 <span class="cm">③ Retry with backoff</span>
 <span class="cm">④ Tool call → search_flights(SFO, NYC, Mar 13)</span>
-<span style="color:#34d399;">✓ 12 results returned</span>
+<span style="color:var(--success);">✓ 12 results returned</span>
 
 <span class="cm">⑤ Think</span>
 <span class="dim">Cheapest is United $187 departing 6:05am.
@@ -1746,9 +1890,9 @@ also surface the $203 JetBlue at 11:30am.</span>
 <div class="slide" data-section="s4">
   <span class="label">Frameworks</span>
   <div class="flow" style="gap:12px;">
-    <div class="flow-item" style="font-size:0.9rem;">Claude Code</div>
-    <div class="flow-item" style="font-size:0.9rem;">OpenAI Agents SDK</div>
-    <div class="flow-item" style="font-size:0.9rem;">Google ADK</div>
+    <div class="flow-item" style="font-size:1.1rem;">Claude Code</div>
+    <div class="flow-item" style="font-size:1.1rem;">OpenAI Agents SDK</div>
+    <div class="flow-item" style="font-size:1.1rem;">Google ADK</div>
   </div>
   <p class="gap dim small">All implement this same loop with different tradeoffs</p>
 </div>
@@ -1764,7 +1908,7 @@ also surface the $203 JetBlue at 11:30am.</span>
 </div>
 
 <div class="slide" data-section="s4">
-  <h2>Autonomous systems =<br><span style="color:#ef4444;">higher stakes</span></h2>
+  <h2>Autonomous systems =<br><span style="color:var(--error);">higher stakes</span></h2>
 </div>
 
 <div class="slide" data-section="s4">
@@ -1824,11 +1968,11 @@ also surface the $203 JetBlue at 11:30am.</span>
 <div class="slide" data-section="s5">
   <span class="label">Unsolved — Things you could work on</span>
   <div class="flow gap" style="gap:10px; flex-wrap:wrap; max-width:560px; justify-content:center;">
-    <div class="flow-item" style="font-size:0.85rem;">Faithful reasoning<br>vs. pattern matching</div>
-    <div class="flow-item" style="font-size:0.85rem;">Continual learning</div>
-    <div class="flow-item" style="font-size:0.85rem;">Grounding in<br>physical reality</div>
-    <div class="flow-item" style="font-size:0.85rem;">Beyond attention</div>
-    <div class="flow-item" style="font-size:0.85rem;">Alignment that scales</div>
+    <div class="flow-item" style="font-size:1.05rem;">Faithful reasoning<br>vs. pattern matching</div>
+    <div class="flow-item" style="font-size:1.05rem;">Continual learning</div>
+    <div class="flow-item" style="font-size:1.05rem;">Grounding in<br>physical reality</div>
+    <div class="flow-item" style="font-size:1.05rem;">Beyond attention</div>
+    <div class="flow-item" style="font-size:1.05rem;">Alignment that scales</div>
   </div>
 </div>
 
@@ -1845,9 +1989,9 @@ also surface the $203 JetBlue at 11:30am.</span>
 <div class="slide" data-section="s6">
   <span class="label">The Pace of Change</span>
   <div style="text-align:left; max-width:500px;">
-    <p style="font-size:1.3rem; margin-bottom:20px;"><span class="dim">60 years:</span> Transistor → Internet</p>
-    <p style="font-size:1.3rem; margin-bottom:20px;"><span class="dim">10 years:</span> AlexNet → ChatGPT</p>
-    <p style="font-size:1.3rem; color:var(--accent);"><span class="dim">18 months:</span> ChatGPT → Autonomous Agents</p>
+    <p style="font-size:1.6rem; margin-bottom:20px;"><span class="dim">60 years:</span> Transistor → Internet</p>
+    <p style="font-size:1.6rem; margin-bottom:20px;"><span class="dim">10 years:</span> AlexNet → ChatGPT</p>
+    <p style="font-size:1.6rem; color:var(--accent);"><span class="dim">18 months:</span> ChatGPT → Autonomous Agents</p>
   </div>
 </div>
 
@@ -1875,7 +2019,7 @@ also surface the $203 JetBlue at 11:30am.</span>
 </div>
 
 <div class="slide" data-section="s6">
-  <h1 style="font-size:2.4rem;">Capabilities come from the model.<br><span class="highlight">Reliability comes from the system.</span></h1>
+  <h1 style="font-size:2.9rem;">Capabilities come from the model.<br><span class="highlight">Reliability comes from the system.</span></h1>
 </div>
 
 <div class="slide section-title" data-section="s6">
@@ -1889,7 +2033,8 @@ also surface the $203 JetBlue at 11:30am.</span>
 <div class="progress-bar" id="progress"></div>
 <div class="slide-counter" id="counter"></div>
 <div class="section-indicator" id="section-name"></div>
-<div class="keys-hint" id="keys-hint">← → keys to navigate &nbsp;|&nbsp; F fullscreen</div>
+<div class="keys-hint" id="keys-hint">← → keys to navigate &nbsp;|&nbsp; F fullscreen &nbsp;|&nbsp; T theme</div>
+<button id="theme-toggle" title="Toggle theme (T)" aria-label="Toggle theme">☀️</button>
 
 <script>
 // ============================================
@@ -1913,15 +2058,10 @@ const sectionNames = {
   's6': 'Your Move'
 };
 
-const sectionColors = {
-  'title': '#818cf8',
-  's1': '#3b82f6',
-  's2': '#8b5cf6',
-  's3': '#6366f1',
-  's4': '#ec4899',
-  's5': '#f59e0b',
-  's6': '#10b981'
-};
+function getSectionColor(section) {
+  const key = section === 'title' ? 'accent' : section;
+  return getComputedStyle(document.documentElement).getPropertyValue('--' + key).trim() || '#818cf8';
+}
 
 function goTo(n) {
   if (n < 0 || n >= total) return;
@@ -1933,7 +2073,7 @@ function goTo(n) {
   progress.style.width = pct + '%';
 
   const section = slides[current].getAttribute('data-section') || 'title';
-  progress.style.background = sectionColors[section] || '#818cf8';
+  progress.style.background = getSectionColor(section);
   counter.textContent = (current + 1) + ' / ' + total;
   sectionName.textContent = sectionNames[section] || '';
 
@@ -1992,11 +2132,39 @@ document.addEventListener('keydown', (e) => {
         document.exitFullscreen();
       }
       break;
+    case 't': case 'T':
+      e.preventDefault();
+      toggleTheme();
+      break;
   }
 });
 
+// Theme toggle
+const themeBtn = document.getElementById('theme-toggle');
+function toggleTheme() {
+  document.documentElement.classList.toggle('light-theme');
+  const isLight = document.documentElement.classList.contains('light-theme');
+  localStorage.setItem('slide-theme', isLight ? 'light' : 'dark');
+  themeBtn.textContent = isLight ? '🌙' : '☀️';
+  // Update progress bar color
+  const section = slides[current].getAttribute('data-section') || 'title';
+  progress.style.background = getSectionColor(section);
+  // Redraw static canvases
+  Object.values(vizRedrawFns).forEach(fn => fn());
+}
+themeBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleTheme();
+});
+// Load saved theme
+if (localStorage.getItem('slide-theme') === 'light') {
+  document.documentElement.classList.add('light-theme');
+  themeBtn.textContent = '🌙';
+}
+
 // Click navigation
 document.addEventListener('click', (e) => {
+  if (e.target.closest('#theme-toggle')) return;
   const x = e.clientX / window.innerWidth;
   if (x > 0.5) next(); else prev();
 });
@@ -2046,6 +2214,38 @@ window.addEventListener('load', () => {
 // VISUALIZATIONS
 // ============================================
 const vizInitialized = new Set();
+const vizRedrawFns = {};
+
+function hexToRgba(hex, a) {
+  const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+function getThemeColors() {
+  const L = document.documentElement.classList.contains('light-theme');
+  return {
+    text: L ? '#1a1a2e' : '#f0f0f2',
+    dim: L ? '#64748b' : '#6b7280',
+    muted: L ? '#9ca3af' : '#4b5563',
+    annotation: L ? '#64748b' : '#9ca3af',
+    label: L ? '#374151' : '#d1d5db',
+    canvasLabel: L ? '#64748b' : '#9ca3af',
+    accent: L ? '#4f46e5' : '#818cf8',
+    accent2: L ? '#7c3aed' : '#c084fc',
+    s1: L ? '#2563eb' : '#3b82f6',
+    s4: L ? '#db2777' : '#ec4899',
+    s5: L ? '#d97706' : '#f59e0b',
+    s6: L ? '#059669' : '#10b981',
+    error: L ? '#dc2626' : '#ef4444',
+    success: L ? '#059669' : '#34d399',
+    grid: L ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.04)',
+    gridStrong: L ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.15)',
+    bg: L ? '#f8f9fa' : '#0a0a0b',
+    clusters: L
+      ? ['#4f46e5','#059669','#d97706','#db2777']
+      : ['#818cf8','#34d399','#f59e0b','#ec4899'],
+  };
+}
 
 function initViz(slideIndex) {
   const slide = slides[slideIndex];
@@ -2068,112 +2268,55 @@ function initNeuronViz() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = 700 * dpr;
-  canvas.height = 380 * dpr;
+  const W = 820, H = 440;
+  canvas.width = W * dpr; canvas.height = H * dpr;
   ctx.scale(dpr, dpr);
 
   let t = 0;
   function draw() {
-    ctx.clearRect(0, 0, 700, 380);
+    const c = getThemeColors();
+    ctx.clearRect(0, 0, W, H);
     t += 0.02;
-
     const inputs = [
-      { label: 'x₁', y: 100, val: Math.sin(t) * 0.5 + 0.5 },
-      { label: 'x₂', y: 190, val: Math.cos(t * 0.7) * 0.5 + 0.5 },
-      { label: 'x₃', y: 280, val: Math.sin(t * 1.3) * 0.5 + 0.5 }
+      { label: 'x₁', y: 110, val: Math.sin(t) * 0.5 + 0.5 },
+      { label: 'x₂', y: 220, val: Math.cos(t * 0.7) * 0.5 + 0.5 },
+      { label: 'x₃', y: 330, val: Math.sin(t * 1.3) * 0.5 + 0.5 }
     ];
-    const weights = [0.6, -0.3, 0.8];
-    const bias = 0.1;
-
+    const weights = [0.6, -0.3, 0.8]; const bias = 0.1;
     const sum = inputs.reduce((s, inp, i) => s + inp.val * weights[i], 0) + bias;
     const output = 1 / (1 + Math.exp(-sum * 3));
-
-    // Draw connections
     inputs.forEach((inp, i) => {
       const alpha = Math.abs(weights[i]);
-      const color = weights[i] > 0 ? `rgba(129,140,248,${alpha})` : `rgba(239,68,68,${alpha})`;
-      ctx.strokeStyle = color;
-      ctx.lineWidth = Math.abs(weights[i]) * 4 + 1;
-      ctx.beginPath();
-      ctx.moveTo(120, inp.y);
-      ctx.lineTo(310, 190);
-      ctx.stroke();
-
-      // Pulse animation
-      const px = 120 + (310 - 120) * ((Math.sin(t * 2 + i) + 1) / 2);
-      const py = inp.y + (190 - inp.y) * ((Math.sin(t * 2 + i) + 1) / 2);
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.arc(px, py, 4, 0, Math.PI * 2);
-      ctx.fill();
+      const clr = weights[i] > 0 ? hexToRgba(c.accent, alpha) : hexToRgba(c.error, alpha);
+      ctx.strokeStyle = clr; ctx.lineWidth = Math.abs(weights[i]) * 4 + 1;
+      ctx.beginPath(); ctx.moveTo(140, inp.y); ctx.lineTo(370, 220); ctx.stroke();
+      const px = 140 + 230 * ((Math.sin(t * 2 + i) + 1) / 2);
+      const py = inp.y + (220 - inp.y) * ((Math.sin(t * 2 + i) + 1) / 2);
+      ctx.fillStyle = clr; ctx.beginPath(); ctx.arc(px, py, 5, 0, Math.PI * 2); ctx.fill();
     });
-
-    // Output connection
-    ctx.strokeStyle = `rgba(129,140,248,${output})`;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(370, 190);
-    ctx.lineTo(530, 190);
-    ctx.stroke();
-
-    // Input nodes
+    ctx.strokeStyle = hexToRgba(c.accent, output); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(430, 220); ctx.lineTo(610, 220); ctx.stroke();
     inputs.forEach((inp, i) => {
-      const brightness = Math.floor(inp.val * 200 + 55);
-      ctx.fillStyle = `rgb(${brightness * 0.5}, ${brightness * 0.55}, ${brightness})`;
-      ctx.beginPath();
-      ctx.arc(90, inp.y, 28, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#f0f0f2';
-      ctx.font = '500 14px Inter';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(inp.label, 90, inp.y);
-
-      // Weight label
-      ctx.fillStyle = '#6b7280';
-      ctx.font = '400 11px JetBrains Mono';
-      ctx.fillText('w=' + weights[i].toFixed(1), 200, inp.y + (190 - inp.y) * 0.5 - 10);
+      const br = Math.floor(inp.val * 200 + 55);
+      ctx.fillStyle = `rgb(${br * 0.5},${br * 0.55},${br})`;
+      ctx.beginPath(); ctx.arc(105, inp.y, 32, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = c.text; ctx.font = '500 16px Inter'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(inp.label, 105, inp.y);
+      ctx.fillStyle = c.dim; ctx.font = '400 13px JetBrains Mono';
+      ctx.fillText('w=' + weights[i].toFixed(1), 240, inp.y + (220 - inp.y) * 0.5 - 12);
     });
-
-    // Neuron node
-    const grd = ctx.createRadialGradient(340, 190, 5, 340, 190, 35);
-    grd.addColorStop(0, `rgba(129,140,248,${output * 0.8})`);
-    grd.addColorStop(1, 'rgba(129,140,248,0.05)');
-    ctx.fillStyle = grd;
-    ctx.beginPath();
-    ctx.arc(340, 190, 35, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(129,140,248,0.4)';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-    ctx.fillStyle = '#f0f0f2';
-    ctx.font = '500 13px Inter';
-    ctx.textAlign = 'center';
-    ctx.fillText('Σ → σ', 340, 190);
-
-    // Output node
-    const outBrightness = Math.floor(output * 200 + 55);
-    ctx.fillStyle = `rgba(16,185,129,${output * 0.8 + 0.2})`;
-    ctx.beginPath();
-    ctx.arc(560, 190, 28, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.fillStyle = '#f0f0f2';
-    ctx.font = '600 14px JetBrains Mono';
-    ctx.fillText(output.toFixed(2), 560, 190);
-
-    // Labels
-    ctx.fillStyle = '#6b7280';
-    ctx.font = '400 11px Inter';
-    ctx.fillText('inputs', 90, 330);
-    ctx.fillText('neuron', 340, 250);
-    ctx.fillText('output', 560, 240);
-
-    // Formula at top
-    ctx.fillStyle = '#4b5563';
-    ctx.font = '400 12px JetBrains Mono';
-    ctx.textAlign = 'center';
-    ctx.fillText(`y = σ(${inputs.map((inp,i) => (weights[i].toFixed(1) + '×' + inp.val.toFixed(2))).join(' + ')} + ${bias}) = ${output.toFixed(3)}`, 350, 40);
-
+    const grd = ctx.createRadialGradient(400, 220, 5, 400, 220, 40);
+    grd.addColorStop(0, hexToRgba(c.accent, output * 0.8)); grd.addColorStop(1, hexToRgba(c.accent, 0.05));
+    ctx.fillStyle = grd; ctx.beginPath(); ctx.arc(400, 220, 40, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = hexToRgba(c.accent, 0.4); ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = c.text; ctx.font = '500 15px Inter'; ctx.textAlign = 'center'; ctx.fillText('Σ → σ', 400, 220);
+    ctx.fillStyle = hexToRgba(c.s6, output * 0.8 + 0.2);
+    ctx.beginPath(); ctx.arc(650, 220, 32, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = c.text; ctx.font = '600 16px JetBrains Mono'; ctx.fillText(output.toFixed(2), 650, 220);
+    ctx.fillStyle = c.dim; ctx.font = '400 13px Inter';
+    ctx.fillText('inputs', 105, 385); ctx.fillText('neuron', 400, 285); ctx.fillText('output', 650, 275);
+    ctx.fillStyle = c.muted; ctx.font = '400 13px JetBrains Mono'; ctx.textAlign = 'center';
+    ctx.fillText(`y = σ(${inputs.map((inp,i) => (weights[i].toFixed(1) + '×' + inp.val.toFixed(2))).join(' + ')} + ${bias}) = ${output.toFixed(3)}`, 410, 45);
     requestAnimationFrame(draw);
   }
   draw();
@@ -2185,14 +2328,13 @@ function initAttentionViz() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = 700 * dpr;
-  canvas.height = 380 * dpr;
+  canvas.width = 820 * dpr;
+  canvas.height = 440 * dpr;
   ctx.scale(dpr, dpr);
 
   const words = ['The', 'cat', 'sat', 'on', 'the', 'mat'];
   const n = words.length;
 
-  // Simulated attention weights (approximately what you'd see)
   const attn = [
     [0.35, 0.15, 0.10, 0.10, 0.20, 0.10],
     [0.10, 0.30, 0.05, 0.05, 0.05, 0.45],
@@ -2202,43 +2344,40 @@ function initAttentionViz() {
     [0.05, 0.10, 0.35, 0.20, 0.05, 0.25],
   ];
 
-  const cellSize = 44;
-  const startX = 200;
-  const startY = 80;
+  const cellSize = 52;
+  const startX = 240;
+  const startY = 90;
   let animT = 0;
 
   function draw() {
-    ctx.clearRect(0, 0, 700, 380);
+    const c = getThemeColors();
+    ctx.clearRect(0, 0, 820, 440);
     animT += 0.015;
     const revealPct = Math.min(1, animT);
 
-    // Title
-    ctx.fillStyle = '#6b7280';
-    ctx.font = '400 12px Inter';
+    ctx.fillStyle = c.dim;
+    ctx.font = '400 13px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText('← Keys (what I contain)', startX + n * cellSize / 2, startY - 30);
+    ctx.fillText('← Keys (what I contain)', startX + n * cellSize / 2, startY - 35);
 
     ctx.save();
-    ctx.translate(startX - 30, startY + n * cellSize / 2);
+    ctx.translate(startX - 35, startY + n * cellSize / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Queries (what I look for) →', 0, 0);
     ctx.restore();
 
-    // Column headers
-    ctx.fillStyle = '#f0f0f2';
-    ctx.font = '500 13px Inter';
+    ctx.fillStyle = c.text;
+    ctx.font = '500 14px Inter';
     ctx.textAlign = 'center';
     words.forEach((w, j) => {
-      ctx.fillText(w, startX + j * cellSize + cellSize / 2, startY - 8);
+      ctx.fillText(w, startX + j * cellSize + cellSize / 2, startY - 10);
     });
 
-    // Row headers
     ctx.textAlign = 'right';
     words.forEach((w, i) => {
-      ctx.fillText(w, startX - 12, startY + i * cellSize + cellSize / 2 + 5);
+      ctx.fillText(w, startX - 14, startY + i * cellSize + cellSize / 2 + 5);
     });
 
-    // Heatmap cells
     for (let i = 0; i < n; i++) {
       for (let j = 0; j < n; j++) {
         const revealIndex = (i * n + j) / (n * n);
@@ -2248,30 +2387,28 @@ function initAttentionViz() {
         const x = startX + j * cellSize;
         const y = startY + i * cellSize;
 
-        // Color: indigo with varying opacity
-        ctx.fillStyle = `rgba(129, 140, 248, ${v * 0.9})`;
+        ctx.fillStyle = hexToRgba(c.accent, v * 0.9);
         ctx.beginPath();
         ctx.roundRect(x + 2, y + 2, cellSize - 4, cellSize - 4, 4);
         ctx.fill();
 
-        // Value text
-        ctx.fillStyle = v > 0.25 ? '#f0f0f2' : '#6b7280';
-        ctx.font = '500 11px JetBrains Mono';
+        ctx.fillStyle = v > 0.25 ? c.text : c.dim;
+        ctx.font = '500 12px JetBrains Mono';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(v.toFixed(2), x + cellSize / 2, y + cellSize / 2);
       }
     }
 
-    // Explanatory note
-    ctx.fillStyle = '#4b5563';
-    ctx.font = '400 11px Inter';
+    ctx.fillStyle = c.muted;
+    ctx.font = '400 12px Inter';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
-    ctx.fillText('Brighter = stronger attention. "cat" attends heavily to "mat" (0.45)', 350, 370);
+    ctx.fillText('Brighter = stronger attention. "cat" attends heavily to "mat" (0.45)', 410, 430);
 
     if (revealPct < 1) requestAnimationFrame(draw);
   }
+  vizRedrawFns['attention'] = () => { animT = 10; draw(); };
   draw();
 }
 
@@ -2281,18 +2418,17 @@ function initScalingViz() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = 700 * dpr;
-  canvas.height = 380 * dpr;
+  canvas.width = 820 * dpr;
+  canvas.height = 440 * dpr;
   ctx.scale(dpr, dpr);
 
-  const padding = { top: 50, right: 40, bottom: 60, left: 70 };
-  const w = 700 - padding.left - padding.right;
-  const h = 380 - padding.top - padding.bottom;
+  const padding = { top: 55, right: 50, bottom: 65, left: 80 };
+  const w = 820 - padding.left - padding.right;
+  const h = 440 - padding.top - padding.bottom;
 
-  // Simulated scaling law data (log-log)
   const data = [];
   for (let i = 0; i < 40; i++) {
-    const logCompute = 17 + i * 0.15; // log10 FLOPs
+    const logCompute = 17 + i * 0.15;
     const loss = 4.5 * Math.pow(10, -0.076 * (logCompute - 17)) + 0.8 + (Math.random() - 0.5) * 0.05;
     data.push({ x: logCompute, y: loss });
   }
@@ -2303,7 +2439,8 @@ function initScalingViz() {
   let animT = 0;
 
   function draw() {
-    ctx.clearRect(0, 0, 700, 380);
+    const c = getThemeColors();
+    ctx.clearRect(0, 0, 820, 440);
     animT += 0.03;
     const revealPct = Math.min(1, animT);
 
@@ -2311,23 +2448,17 @@ function initScalingViz() {
     const toY = (v) => padding.top + ((yMax - v) / (yMax - yMin)) * h;
 
     // Grid lines
-    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    ctx.strokeStyle = c.grid;
     ctx.lineWidth = 1;
     for (let x = 18; x <= 23; x++) {
-      ctx.beginPath();
-      ctx.moveTo(toX(x), padding.top);
-      ctx.lineTo(toX(x), padding.top + h);
-      ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(toX(x), padding.top); ctx.lineTo(toX(x), padding.top + h); ctx.stroke();
     }
     for (let y = 1.0; y <= 2.5; y += 0.5) {
-      ctx.beginPath();
-      ctx.moveTo(padding.left, toY(y));
-      ctx.lineTo(padding.left + w, toY(y));
-      ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(padding.left, toY(y)); ctx.lineTo(padding.left + w, toY(y)); ctx.stroke();
     }
 
     // Axes
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.strokeStyle = hexToRgba(c.text, 0.15);
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padding.left, padding.top);
@@ -2336,19 +2467,19 @@ function initScalingViz() {
     ctx.stroke();
 
     // Axis labels
-    ctx.fillStyle = '#6b7280';
-    ctx.font = '400 11px Inter';
+    ctx.fillStyle = c.dim;
+    ctx.font = '400 12px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText('Compute (log₁₀ FLOPs)', padding.left + w / 2, 380 - 12);
+    ctx.fillText('Compute (log₁₀ FLOPs)', padding.left + w / 2, 440 - 12);
 
     ctx.save();
-    ctx.translate(18, padding.top + h / 2);
+    ctx.translate(20, padding.top + h / 2);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('Loss', 0, 0);
     ctx.restore();
 
     // Tick labels
-    ctx.font = '400 10px JetBrains Mono';
+    ctx.font = '400 11px JetBrains Mono';
     ctx.textBaseline = 'top';
     for (let x = 18; x <= 23; x++) {
       ctx.fillText('10^' + x, toX(x), padding.top + h + 8);
@@ -2356,34 +2487,29 @@ function initScalingViz() {
     ctx.textAlign = 'right';
     ctx.textBaseline = 'middle';
     for (let y = 1.0; y <= 2.5; y += 0.5) {
-      ctx.fillText(y.toFixed(1), padding.left - 10, toY(y));
+      ctx.fillText(y.toFixed(1), padding.left - 12, toY(y));
     }
 
     // Data points
     const revealCount = Math.floor(data.length * revealPct);
     for (let i = 0; i < revealCount; i++) {
       const d = data[i];
-      const px = toX(d.x);
-      const py = toY(d.y);
-
-      ctx.fillStyle = 'rgba(129,140,248,0.7)';
+      ctx.fillStyle = hexToRgba(c.accent, 0.7);
       ctx.beginPath();
-      ctx.arc(px, py, 4, 0, Math.PI * 2);
+      ctx.arc(toX(d.x), toY(d.y), 4.5, 0, Math.PI * 2);
       ctx.fill();
     }
 
     // Trend line
     if (revealPct > 0.3) {
-      ctx.strokeStyle = 'rgba(192,132,252,0.6)';
+      ctx.strokeStyle = hexToRgba(c.accent2, 0.6);
       ctx.lineWidth = 2;
       ctx.setLineDash([6, 4]);
       ctx.beginPath();
       for (let x = xMin; x <= xMax; x += 0.1) {
         const y = 4.5 * Math.pow(10, -0.076 * (x - 17)) + 0.8;
-        const px = toX(x);
-        const py = toY(y);
-        if (x === xMin) ctx.moveTo(px, py);
-        else ctx.lineTo(px, py);
+        if (x === xMin) ctx.moveTo(toX(x), toY(y));
+        else ctx.lineTo(toX(x), toY(y));
       }
       ctx.stroke();
       ctx.setLineDash([]);
@@ -2391,23 +2517,24 @@ function initScalingViz() {
 
     // Label
     if (revealPct > 0.5) {
-      ctx.fillStyle = '#c084fc';
-      ctx.font = '500 12px Inter';
+      ctx.fillStyle = c.accent2;
+      ctx.font = '500 13px Inter';
       ctx.textAlign = 'left';
       ctx.fillText('L(C) ∝ C^(-0.076)', toX(20.5), toY(1.3));
     }
 
     // Title
-    ctx.fillStyle = '#f0f0f2';
-    ctx.font = '600 14px Inter';
+    ctx.fillStyle = c.text;
+    ctx.font = '600 15px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText('Neural Scaling Laws', 350, 28);
-    ctx.fillStyle = '#6b7280';
-    ctx.font = '400 11px Inter';
-    ctx.fillText('More compute → predictably lower loss', 350, 46);
+    ctx.fillText('Neural Scaling Laws', 410, 30);
+    ctx.fillStyle = c.dim;
+    ctx.font = '400 12px Inter';
+    ctx.fillText('More compute → predictably lower loss', 410, 50);
 
     if (revealPct < 1) requestAnimationFrame(draw);
   }
+  vizRedrawFns['scaling'] = () => { animT = 10; draw(); };
   draw();
 }
 
@@ -2417,102 +2544,96 @@ function initLoopViz() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = 700 * dpr;
-  canvas.height = 380 * dpr;
+  canvas.width = 820 * dpr;
+  canvas.height = 440 * dpr;
   ctx.scale(dpr, dpr);
 
-  const cx = 350, cy = 185;
-  const radius = 130;
+  const cxC = 410, cyC = 215;
+  const radius = 155;
   const steps = ['Perceive', 'Reason', 'Plan', 'Act', 'Observe'];
   const n = steps.length;
   let t = 0;
 
   function draw() {
-    ctx.clearRect(0, 0, 700, 380);
+    const c = getThemeColors();
+    ctx.clearRect(0, 0, 820, 440);
     t += 0.008;
 
     const activeIndex = Math.floor((t % 1) * n);
 
-    // Draw connecting arcs
     for (let i = 0; i < n; i++) {
       const angle1 = (i / n) * Math.PI * 2 - Math.PI / 2;
       const angle2 = ((i + 1) / n) * Math.PI * 2 - Math.PI / 2;
-      const x1 = cx + Math.cos(angle1) * radius;
-      const y1 = cy + Math.sin(angle1) * radius;
-      const x2 = cx + Math.cos(angle2) * radius;
-      const y2 = cy + Math.sin(angle2) * radius;
+      const x1 = cxC + Math.cos(angle1) * radius;
+      const y1 = cyC + Math.sin(angle1) * radius;
+      const x2 = cxC + Math.cos(angle2) * radius;
+      const y2 = cyC + Math.sin(angle2) * radius;
 
       const isActive = i === activeIndex;
-      ctx.strokeStyle = isActive ? 'rgba(236,72,153,0.6)' : 'rgba(255,255,255,0.1)';
+      ctx.strokeStyle = isActive ? hexToRgba(c.s4, 0.6) : hexToRgba(c.text, 0.1);
       ctx.lineWidth = isActive ? 3 : 1.5;
 
-      // Curved line
       const midAngle = ((i + 0.5) / n) * Math.PI * 2 - Math.PI / 2;
-      const cpx = cx + Math.cos(midAngle) * (radius + 15);
-      const cpy = cy + Math.sin(midAngle) * (radius + 15);
+      const cpx = cxC + Math.cos(midAngle) * (radius + 18);
+      const cpy = cyC + Math.sin(midAngle) * (radius + 18);
       ctx.beginPath();
       ctx.moveTo(x1, y1);
       ctx.quadraticCurveTo(cpx, cpy, x2, y2);
       ctx.stroke();
 
-      // Arrow
       if (isActive) {
         const arrowAngle = Math.atan2(y2 - cpy, x2 - cpx);
-        ctx.fillStyle = 'rgba(236,72,153,0.6)';
+        ctx.fillStyle = hexToRgba(c.s4, 0.6);
         ctx.beginPath();
         ctx.moveTo(x2, y2);
-        ctx.lineTo(x2 - 10 * Math.cos(arrowAngle - 0.4), y2 - 10 * Math.sin(arrowAngle - 0.4));
-        ctx.lineTo(x2 - 10 * Math.cos(arrowAngle + 0.4), y2 - 10 * Math.sin(arrowAngle + 0.4));
+        ctx.lineTo(x2 - 11 * Math.cos(arrowAngle - 0.4), y2 - 11 * Math.sin(arrowAngle - 0.4));
+        ctx.lineTo(x2 - 11 * Math.cos(arrowAngle + 0.4), y2 - 11 * Math.sin(arrowAngle + 0.4));
         ctx.closePath();
         ctx.fill();
       }
     }
 
-    // Draw nodes
     for (let i = 0; i < n; i++) {
       const angle = (i / n) * Math.PI * 2 - Math.PI / 2;
-      const x = cx + Math.cos(angle) * radius;
-      const y = cy + Math.sin(angle) * radius;
+      const x = cxC + Math.cos(angle) * radius;
+      const y = cyC + Math.sin(angle) * radius;
       const isActive = i === activeIndex;
 
-      // Node circle
-      const r = isActive ? 36 : 32;
+      const r = isActive ? 40 : 36;
       const grd = ctx.createRadialGradient(x, y, 2, x, y, r);
       if (isActive) {
-        grd.addColorStop(0, 'rgba(236,72,153,0.3)');
-        grd.addColorStop(1, 'rgba(236,72,153,0.05)');
+        grd.addColorStop(0, hexToRgba(c.s4, 0.3));
+        grd.addColorStop(1, hexToRgba(c.s4, 0.05));
       } else {
-        grd.addColorStop(0, 'rgba(255,255,255,0.06)');
-        grd.addColorStop(1, 'rgba(255,255,255,0.02)');
+        grd.addColorStop(0, hexToRgba(c.text, 0.06));
+        grd.addColorStop(1, hexToRgba(c.text, 0.02));
       }
       ctx.fillStyle = grd;
       ctx.beginPath();
       ctx.arc(x, y, r, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.strokeStyle = isActive ? 'rgba(236,72,153,0.5)' : 'rgba(255,255,255,0.15)';
+      ctx.strokeStyle = isActive ? hexToRgba(c.s4, 0.5) : hexToRgba(c.text, 0.15);
       ctx.lineWidth = isActive ? 2 : 1;
       ctx.stroke();
 
-      // Label
-      ctx.fillStyle = isActive ? '#f0f0f2' : '#9ca3af';
-      ctx.font = `${isActive ? '600' : '400'} 12px Inter`;
+      ctx.fillStyle = isActive ? c.text : c.canvasLabel;
+      ctx.font = `${isActive ? '600' : '400'} 14px Inter`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(steps[i], x, y);
     }
 
-    // Center label
-    ctx.fillStyle = 'rgba(236,72,153,0.15)';
+    ctx.fillStyle = hexToRgba(c.s4, 0.15);
     ctx.beginPath();
-    ctx.arc(cx, cy, 40, 0, Math.PI * 2);
+    ctx.arc(cxC, cyC, 46, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = '#ec4899';
-    ctx.font = '600 13px Inter';
+    ctx.fillStyle = c.s4;
+    ctx.font = '600 15px Inter';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('Agent', cx, cy - 7);
-    ctx.fillText('Loop', cx, cy + 9);
+    ctx.fillText('Agent', cxC, cyC - 8);
+    ctx.fillText('Loop', cxC, cyC + 10);
 
     requestAnimationFrame(draw);
   }
@@ -2525,30 +2646,33 @@ function initEmbedViz() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = 600 * dpr;
-  canvas.height = 380 * dpr;
+  canvas.width = 820 * dpr;
+  canvas.height = 440 * dpr;
   ctx.scale(dpr, dpr);
 
-  const clusters = [
-    { label: 'Royalty', color: '#818cf8', words: [
+  // Scale factor from old 600×380 to 820×440
+  const sx = 820 / 600, sy = 440 / 380;
+
+  const baseClusters = [
+    { label: 'Royalty', ci: 0, words: [
       { word: 'king', x: 380, y: 80 },
       { word: 'queen', x: 420, y: 120 },
       { word: 'prince', x: 350, y: 130 },
       { word: 'throne', x: 410, y: 65 },
     ]},
-    { label: 'Animals', color: '#34d399', words: [
+    { label: 'Animals', ci: 1, words: [
       { word: 'cat', x: 120, y: 240 },
       { word: 'dog', x: 160, y: 270 },
       { word: 'kitten', x: 90, y: 280 },
       { word: 'puppy', x: 180, y: 300 },
     ]},
-    { label: 'Food', color: '#f59e0b', words: [
+    { label: 'Food', ci: 2, words: [
       { word: 'bread', x: 440, y: 280 },
       { word: 'rice', x: 480, y: 310 },
       { word: 'pasta', x: 500, y: 270 },
       { word: 'cake', x: 420, y: 320 },
     ]},
-    { label: 'Actions', color: '#ec4899', words: [
+    { label: 'Actions', ci: 3, words: [
       { word: 'run', x: 140, y: 80 },
       { word: 'walk', x: 170, y: 110 },
       { word: 'sprint', x: 110, y: 60 },
@@ -2558,96 +2682,92 @@ function initEmbedViz() {
 
   let t = 0;
   function draw() {
-    ctx.clearRect(0, 0, 600, 380);
+    const c = getThemeColors();
+    const cls = c.clusters;
+    ctx.clearRect(0, 0, 820, 440);
     t += 0.01;
 
     // Subtle grid
-    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.strokeStyle = c.grid;
     ctx.lineWidth = 1;
-    for (let x = 0; x < 600; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 380); ctx.stroke(); }
-    for (let y = 0; y < 380; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(600, y); ctx.stroke(); }
+    for (let x = 0; x < 820; x += 48) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 440); ctx.stroke(); }
+    for (let y = 0; y < 440; y += 48) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(820, y); ctx.stroke(); }
 
-    // Draw king→queen and man→woman vector arrow
+    // King→queen vector arrow
     ctx.setLineDash([4, 4]);
-    ctx.strokeStyle = 'rgba(192,132,252,0.4)';
+    ctx.strokeStyle = hexToRgba(c.accent2, 0.4);
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(380, 80);
-    ctx.lineTo(420, 120);
+    ctx.moveTo(380 * sx, 80 * sy);
+    ctx.lineTo(420 * sx, 120 * sy);
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Label the vector
-    ctx.fillStyle = 'rgba(192,132,252,0.5)';
-    ctx.font = '400 10px Inter';
+    ctx.fillStyle = hexToRgba(c.accent2, 0.5);
+    ctx.font = '400 11px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText('king → queen', 415, 95);
+    ctx.fillText('king → queen', 415 * sx, 95 * sy);
 
     // Draw clusters
-    clusters.forEach(cluster => {
-      // Cluster cloud
-      const cx = cluster.words.reduce((s, w) => s + w.x, 0) / cluster.words.length;
-      const cy = cluster.words.reduce((s, w) => s + w.y, 0) / cluster.words.length;
-      const grd = ctx.createRadialGradient(cx, cy, 10, cx, cy, 80);
-      grd.addColorStop(0, cluster.color + '12');
+    baseClusters.forEach(cluster => {
+      const clr = cls[cluster.ci];
+      const ccx = cluster.words.reduce((s, w) => s + w.x * sx, 0) / cluster.words.length;
+      const ccy = cluster.words.reduce((s, w) => s + w.y * sy, 0) / cluster.words.length;
+      const grd = ctx.createRadialGradient(ccx, ccy, 10, ccx, ccy, 95);
+      grd.addColorStop(0, clr + '12');
       grd.addColorStop(1, 'transparent');
       ctx.fillStyle = grd;
       ctx.beginPath();
-      ctx.arc(cx, cy, 80, 0, Math.PI * 2);
+      ctx.arc(ccx, ccy, 95, 0, Math.PI * 2);
       ctx.fill();
 
-      // Cluster label
-      ctx.fillStyle = cluster.color + '80';
-      ctx.font = '500 10px Inter';
+      ctx.fillStyle = clr + '80';
+      ctx.font = '500 11px Inter';
       ctx.textAlign = 'center';
-      ctx.fillText(cluster.label, cx, cy - 55);
+      ctx.fillText(cluster.label, ccx, ccy - 65);
 
-      // Words as dots
       cluster.words.forEach(w => {
         const wobbleX = Math.sin(t * 2 + w.x * 0.1) * 2;
         const wobbleY = Math.cos(t * 2 + w.y * 0.1) * 2;
-        const wx = w.x + wobbleX;
-        const wy = w.y + wobbleY;
+        const wx = w.x * sx + wobbleX;
+        const wy = w.y * sy + wobbleY;
 
-        // Dot
-        ctx.fillStyle = cluster.color;
+        ctx.fillStyle = clr;
         ctx.beginPath();
-        ctx.arc(wx, wy, 5, 0, Math.PI * 2);
+        ctx.arc(wx, wy, 5.5, 0, Math.PI * 2);
         ctx.fill();
 
-        // Glow
-        const glow = ctx.createRadialGradient(wx, wy, 2, wx, wy, 12);
-        glow.addColorStop(0, cluster.color + '40');
+        const glow = ctx.createRadialGradient(wx, wy, 2, wx, wy, 14);
+        glow.addColorStop(0, clr + '40');
         glow.addColorStop(1, 'transparent');
         ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(wx, wy, 12, 0, Math.PI * 2);
+        ctx.arc(wx, wy, 14, 0, Math.PI * 2);
         ctx.fill();
 
-        // Label
-        ctx.fillStyle = '#d1d5db';
-        ctx.font = '400 11px Inter';
+        ctx.fillStyle = c.canvasLabel;
+        ctx.font = '400 12px Inter';
         ctx.textAlign = 'left';
-        ctx.fillText(w.word, wx + 10, wy + 4);
+        ctx.fillText(w.word, wx + 11, wy + 4);
       });
     });
 
     // Axes
-    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.strokeStyle = hexToRgba(c.text, 0.1);
     ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.moveTo(30, 360);
-    ctx.lineTo(580, 360);
-    ctx.moveTo(30, 360);
-    ctx.lineTo(30, 20);
+    ctx.moveTo(35, 415);
+    ctx.lineTo(790, 415);
+    ctx.moveTo(35, 415);
+    ctx.lineTo(35, 20);
     ctx.stroke();
 
-    ctx.fillStyle = '#4b5563';
-    ctx.font = '400 10px Inter';
+    ctx.fillStyle = c.muted;
+    ctx.font = '400 11px Inter';
     ctx.textAlign = 'center';
-    ctx.fillText('dimension 1', 300, 375);
+    ctx.fillText('dimension 1', 410, 435);
     ctx.save();
-    ctx.translate(15, 190);
+    ctx.translate(16, 220);
     ctx.rotate(-Math.PI / 2);
     ctx.fillText('dimension 2', 0, 0);
     ctx.restore();
