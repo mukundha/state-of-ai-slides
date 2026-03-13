@@ -2085,15 +2085,14 @@ also surface the $203 JetBlue at 11:30am.</span>
 </div>
 
 <div class="slide" data-section="s6">
-  <span class="label">3 Starter Projects</span>
+  <span class="label">2 Starter Projects</span>
   <h2>Build this weekend:</h2>
 </div>
 
 <div class="slide" data-section="s6">
   <div style="text-align:left; display:inline-block; line-height:2.2;">
     <p><span class="accent" style="font-weight:700;">1.</span> Fine-tune a small model on your own data <span class="dim small">(LoRA + HuggingFace)</span></p>
-    <p><span class="accent" style="font-weight:700;">2.</span> Build a RAG chatbot over a PDF corpus <span class="dim small">(embeddings + vector DB)</span></p>
-    <p><span class="accent" style="font-weight:700;">3.</span> Write an agent that uses tools to solve a task <span class="dim small">(Agent SDK + MCP)</span></p>
+    <p><span class="accent" style="font-weight:700;">2.</span> Write an agent that uses tools to solve a task <span class="dim small">(Agent SDK + MCP)</span></p>
   </div>
 </div>
 
@@ -2141,7 +2140,7 @@ let current = 0; // index into visibleOrder
 const total = slides.length;
 
 // Slide ordering & visibility — default config
-const DEFAULT_ORDER = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,36,52,53,54,55,56,40,41,42,43,44,45,46,47,48,50,51,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,93,95,94,90,91,92,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,49,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197];
+const DEFAULT_ORDER = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,36,52,53,54,55,56,40,41,42,43,44,45,46,47,48,50,51,57,58,59,60,61,62,63,64,65,66,67,68,69,70,107,108,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,93,95,94,90,91,92,96,97,98,99,100,101,102,103,104,105,106,109,110,111,112,49,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197];
 const DEFAULT_HIDDEN = [37,40,58,59,60,61,62,66];
 let slideOrder = [...DEFAULT_ORDER];
 let hiddenSlides = new Set(DEFAULT_HIDDEN);
@@ -2172,9 +2171,10 @@ function encodeSlideConfig() {
 
 function decodeSlideConfig(hash) {
   try {
-    const m = hash.match(/sm=([A-Za-z0-9+/=]+)/);
+    const m = hash.match(/sm=([A-Za-z0-9+/=_-]+)/);
     if (!m) return null;
-    const cfg = JSON.parse(atob(m[1]));
+    const b64 = m[1].replace(/-/g,'+').replace(/_/g,'/');
+    const cfg = JSON.parse(atob(b64));
     // Reconstruct full order from delta (array-of-pairs format)
     if (cfg.d && Array.isArray(cfg.d)) {
       cfg.o = [...DEFAULT_ORDER];
@@ -2186,7 +2186,11 @@ function decodeSlideConfig(hash) {
       Object.keys(cfg.d).forEach(k => { cfg.o[parseInt(k)] = cfg.d[k]; });
       delete cfg.d;
     }
-    // Backward compat: cfg.o from old full-array format still works
+    // Validate: order must be a valid permutation (all unique)
+    if (cfg.o && new Set(cfg.o).size !== cfg.o.length) {
+      console.warn('Slide config URL corrupted — using defaults');
+      return null;
+    }
     return cfg;
   } catch(e) { return null; }
 }
