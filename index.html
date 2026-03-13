@@ -451,6 +451,85 @@ body:hover { cursor: default; }
 }
 #theme-toggle:hover { opacity: 1; }
 
+/* Slide Manager Panel */
+#slide-manager {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 340px; height: 100vh;
+  background: var(--bg);
+  border-left: 1px solid var(--border-strong);
+  z-index: 1000;
+  overflow-y: auto;
+  font-family: var(--font);
+  padding: 0;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.4);
+}
+#slide-manager.open { display: block; }
+#slide-manager .sm-header {
+  position: sticky; top: 0;
+  background: var(--bg);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  z-index: 1;
+}
+#slide-manager .sm-header h3 {
+  font-size: 0.85rem; font-weight: 600; color: var(--text); letter-spacing: 0.05em; text-transform: uppercase;
+}
+#slide-manager .sm-close {
+  background: none; border: none; color: var(--dim); cursor: pointer; font-size: 1.2rem; padding: 4px 8px;
+}
+#slide-manager .sm-close:hover { color: var(--text); }
+.sm-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  cursor: grab;
+  transition: background 0.15s;
+  font-size: 0.7rem;
+}
+.sm-item:active { cursor: grabbing; }
+.sm-item:hover { background: var(--surface); }
+.sm-item.dragging { opacity: 0.4; }
+.sm-item.drag-over { border-top: 2px solid var(--accent); }
+.sm-item.sm-hidden { opacity: 0.35; }
+.sm-item.sm-current { background: var(--surface); border-left: 3px solid var(--accent); }
+.sm-num {
+  min-width: 28px; text-align: right; color: var(--dim);
+  font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+}
+.sm-title {
+  flex: 1; color: var(--text); white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; font-weight: 400;
+}
+.sm-section {
+  font-family: var(--mono); font-size: 0.55rem; color: var(--dim);
+  background: var(--surface-dim); padding: 1px 5px; border-radius: 3px;
+  white-space: nowrap;
+}
+.sm-toggle {
+  background: none; border: none; cursor: pointer;
+  font-size: 0.85rem; padding: 2px 4px; opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.sm-toggle:hover { opacity: 1; }
+.sm-grip {
+  color: var(--dim); font-size: 0.7rem; cursor: grab; user-select: none;
+}
+.sm-actions {
+  padding: 10px 16px;
+  display: flex; gap: 8px;
+}
+.sm-actions button {
+  flex: 1; padding: 6px 0; border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface); color: var(--text);
+  font-family: var(--font); font-size: 0.65rem; font-weight: 500;
+  cursor: pointer; transition: background 0.15s;
+}
+.sm-actions button:hover { background: var(--border); }
+
 /* Inline SVG node styles */
 .node-box {
   fill: var(--node-fill);
@@ -773,6 +852,107 @@ html.light-theme .stack-l5 { background: rgba(219,39,119,0.03); border-color: rg
 
 
 <!-- ============================================ -->
+<!--  S3: HOW LLMs ACTUALLY WORK                  -->
+<!-- ============================================ -->
+
+<div class="slide section-title" data-section="s3">
+  <div class="section-num">Phase 2</div>
+  <h1 style="color:var(--s3);">How LLMs<br>Actually Work</h1>
+  <p class="gap dim">From a single neuron to a frontier model</p>
+</div>
+
+<!-- === 3a: The Neuron === -->
+
+<div class="slide" data-section="s3">
+  <span class="label">The Atom</span>
+  <h1>The Neuron</h1>
+  <p class="gap dim">The basic unit of learned intelligence</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>Start simple.</h2>
+  <h2 class="gap-sm">The oldest equation you know.</h2>
+</div>
+
+<div class="slide math-slide" data-section="s3">
+  <div class="katex-lg">$$y = mx + c$$</div>
+  <p class="math-note gap">A line. Input → multiply → add → output.</p>
+</div>
+
+<div class="slide math-slide" data-section="s3">
+  <div class="katex-lg">$$y = wx + b$$</div>
+  <p class="math-note gap">Rename it. <em>w</em> = weight. <em>b</em> = bias.</p>
+  <p class="math-note">That's a neuron.</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>That's it.</h2>
+  <h2 class="gap-sm accent">That's a neuron.</h2>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>But what's <em>learning</em>?</h2>
+</div>
+
+<div class="slide" data-section="s3">
+  <span class="label">Step 1</span>
+  <h2>Make a prediction</h2>
+  <p class="gap dim">Forward pass — run the input through</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <span class="label">Step 2</span>
+  <h2>Measure the error</h2>
+  <p class="gap dim">How wrong were we? → Loss function</p>
+</div>
+
+<div class="slide math-slide" data-section="s3">
+  <span class="label">Step 2</span>
+  <div>$$\mathcal{L} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$</div>
+  <p class="math-note gap">Mean squared error — the simplest loss</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <span class="label">Step 3</span>
+  <h2>Compute gradients</h2>
+  <p class="gap dim">Which direction reduces the error?</p>
+</div>
+
+<div class="slide math-slide" data-section="s3">
+  <span class="label">Step 3</span>
+  <div>$$\frac{\partial \mathcal{L}}{\partial w}$$</div>
+  <p class="math-note gap">The gradient — the slope of the loss landscape</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <span class="label">Step 4</span>
+  <h2>Update the weights</h2>
+</div>
+
+<div class="slide math-slide" data-section="s3">
+  <span class="label">Step 4 — Gradient Descent</span>
+  <div>$$w \leftarrow w - \eta \frac{\partial \mathcal{L}}{\partial w}$$</div>
+  <p class="math-note gap">η = learning rate — how big a step we take</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <span class="label">Step 5</span>
+  <h1>Repeat.</h1>
+  <p class="gap dim">Thousands. Millions. Billions of times.</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>This is <em>essentially</em> all of<br>supervised machine learning.</h2>
+  <p class="gap dim">Predict → Error → Gradient → Update → Repeat</p>
+</div>
+
+<div class="slide" data-section="s3">
+  <h2>But y = wx + b is a line.</h2>
+  <h2 class="gap-sm">The world isn't linear.</h2>
+</div>
+
+
+<!-- ============================================ -->
 <!--  S2: WHY LEARNING BECAME POSSIBLE            -->
 <!-- ============================================ -->
 
@@ -901,107 +1081,6 @@ html.light-theme .stack-l5 { background: rgba(219,39,119,0.03); border-color: rg
 
 <div class="slide" data-section="s2">
   <h1>The machine finds the rules.</h1>
-</div>
-
-
-<!-- ============================================ -->
-<!--  S3: HOW LLMs ACTUALLY WORK                  -->
-<!-- ============================================ -->
-
-<div class="slide section-title" data-section="s3">
-  <div class="section-num">Phase 2</div>
-  <h1 style="color:var(--s3);">How LLMs<br>Actually Work</h1>
-  <p class="gap dim">From a single neuron to a frontier model</p>
-</div>
-
-<!-- === 3a: The Neuron === -->
-
-<div class="slide" data-section="s3">
-  <span class="label">The Atom</span>
-  <h1>The Neuron</h1>
-  <p class="gap dim">The basic unit of learned intelligence</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <h2>Start simple.</h2>
-  <h2 class="gap-sm">The oldest equation you know.</h2>
-</div>
-
-<div class="slide math-slide" data-section="s3">
-  <div class="katex-lg">$$y = mx + c$$</div>
-  <p class="math-note gap">A line. Input → multiply → add → output.</p>
-</div>
-
-<div class="slide math-slide" data-section="s3">
-  <div class="katex-lg">$$y = wx + b$$</div>
-  <p class="math-note gap">Rename it. <em>w</em> = weight. <em>b</em> = bias.</p>
-  <p class="math-note">That's a neuron.</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <h2>That's it.</h2>
-  <h2 class="gap-sm accent">That's a neuron.</h2>
-</div>
-
-<div class="slide" data-section="s3">
-  <h2>But what's <em>learning</em>?</h2>
-</div>
-
-<div class="slide" data-section="s3">
-  <span class="label">Step 1</span>
-  <h2>Make a prediction</h2>
-  <p class="gap dim">Forward pass — run the input through</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <span class="label">Step 2</span>
-  <h2>Measure the error</h2>
-  <p class="gap dim">How wrong were we? → Loss function</p>
-</div>
-
-<div class="slide math-slide" data-section="s3">
-  <span class="label">Step 2</span>
-  <div>$$\mathcal{L} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$</div>
-  <p class="math-note gap">Mean squared error — the simplest loss</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <span class="label">Step 3</span>
-  <h2>Compute gradients</h2>
-  <p class="gap dim">Which direction reduces the error?</p>
-</div>
-
-<div class="slide math-slide" data-section="s3">
-  <span class="label">Step 3</span>
-  <div>$$\frac{\partial \mathcal{L}}{\partial w}$$</div>
-  <p class="math-note gap">The gradient — the slope of the loss landscape</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <span class="label">Step 4</span>
-  <h2>Update the weights</h2>
-</div>
-
-<div class="slide math-slide" data-section="s3">
-  <span class="label">Step 4 — Gradient Descent</span>
-  <div>$$w \leftarrow w - \eta \frac{\partial \mathcal{L}}{\partial w}$$</div>
-  <p class="math-note gap">η = learning rate — how big a step we take</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <span class="label">Step 5</span>
-  <h1>Repeat.</h1>
-  <p class="gap dim">Thousands. Millions. Billions of times.</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <h2>This is <em>essentially</em> all of<br>supervised machine learning.</h2>
-  <p class="gap dim">Predict → Error → Gradient → Update → Repeat</p>
-</div>
-
-<div class="slide" data-section="s3">
-  <h2>But y = wx + b is a line.</h2>
-  <h2 class="gap-sm">The world isn't linear.</h2>
 </div>
 
 <div class="slide" data-section="s3">
@@ -2033,8 +2112,21 @@ also surface the $203 JetBlue at 11:30am.</span>
 <div class="progress-bar" id="progress"></div>
 <div class="slide-counter" id="counter"></div>
 <div class="section-indicator" id="section-name"></div>
-<div class="keys-hint" id="keys-hint">← → keys to navigate &nbsp;|&nbsp; F fullscreen &nbsp;|&nbsp; T theme</div>
+<div class="keys-hint" id="keys-hint">← → keys to navigate &nbsp;|&nbsp; F fullscreen &nbsp;|&nbsp; T theme &nbsp;|&nbsp; M manager &nbsp;|&nbsp; H hide slide</div>
 <button id="theme-toggle" title="Toggle theme (T)" aria-label="Toggle theme">☀️</button>
+
+<div id="slide-manager">
+  <div class="sm-header">
+    <h3>Slide Manager</h3>
+    <button class="sm-close" id="sm-close">✕</button>
+  </div>
+  <div class="sm-actions">
+    <button id="sm-reset">Reset Order</button>
+    <button id="sm-show-all">Show All</button>
+    <button id="sm-copy-link">📋 Copy Link</button>
+  </div>
+  <div id="sm-list"></div>
+</div>
 
 <script>
 // ============================================
@@ -2045,8 +2137,91 @@ const progress = document.getElementById('progress');
 const counter = document.getElementById('counter');
 const sectionName = document.getElementById('section-name');
 const keysHint = document.getElementById('keys-hint');
-let current = 0;
+let current = 0; // index into visibleOrder
 const total = slides.length;
+
+// Slide ordering & visibility — default config
+const DEFAULT_ORDER = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,37,38,39,36,52,53,54,55,56,40,41,42,43,44,45,46,47,48,50,51,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,93,95,94,90,91,92,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,49,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197];
+const DEFAULT_HIDDEN = [37,40,58,59,60,61,62,66];
+let slideOrder = [...DEFAULT_ORDER];
+let hiddenSlides = new Set(DEFAULT_HIDDEN);
+
+function getVisibleOrder() {
+  return slideOrder.filter(i => !hiddenSlides.has(i));
+}
+
+// Load saved state from localStorage
+// --- URL hash config for cross-machine persistence ---
+// Delta encoding: only store positions that differ from default [0,1,2,...N]
+function encodeSlideConfig() {
+  const orderMatch = slideOrder.every((v, i) => v === DEFAULT_ORDER[i]);
+  const defH = new Set(DEFAULT_HIDDEN);
+  const hiddenMatch = hiddenSlides.size === defH.size && [...hiddenSlides].every(v => defH.has(v));
+  if (orderMatch && hiddenMatch) return '';
+  const cfg = {};
+  const h = [...hiddenSlides];
+  if (h.length > 0) cfg.h = h;
+  if (!orderMatch) {
+    // Store as array of [position, value] pairs for positions that differ from DEFAULT_ORDER
+    const dArr = [];
+    slideOrder.forEach((v, i) => { if (v !== DEFAULT_ORDER[i]) dArr.push([i, v]); });
+    cfg.d = dArr;
+  }
+  return 'sm=' + btoa(JSON.stringify(cfg));
+}
+
+function decodeSlideConfig(hash) {
+  try {
+    const m = hash.match(/sm=([A-Za-z0-9+/=]+)/);
+    if (!m) return null;
+    const cfg = JSON.parse(atob(m[1]));
+    // Reconstruct full order from delta (array-of-pairs format)
+    if (cfg.d && Array.isArray(cfg.d)) {
+      cfg.o = [...DEFAULT_ORDER];
+      cfg.d.forEach(([pos, val]) => { cfg.o[pos] = val; });
+      delete cfg.d;
+    } else if (cfg.d && typeof cfg.d === 'object') {
+      // Legacy object-key format (backward compat)
+      cfg.o = [...DEFAULT_ORDER];
+      Object.keys(cfg.d).forEach(k => { cfg.o[parseInt(k)] = cfg.d[k]; });
+      delete cfg.d;
+    }
+    // Backward compat: cfg.o from old full-array format still works
+    return cfg;
+  } catch(e) { return null; }
+}
+
+(function loadSlideState() {
+  // URL hash takes priority (cross-machine sharing)
+  const hashCfg = decodeSlideConfig(window.location.hash);
+  if (hashCfg) {
+    if (hashCfg.o && hashCfg.o.length === total) slideOrder = hashCfg.o;
+    if (hashCfg.h) hiddenSlides = new Set(hashCfg.h);
+    // Sync to localStorage so it persists after hash is removed
+    localStorage.setItem('slide-manager-state', JSON.stringify({
+      order: slideOrder, hidden: [...hiddenSlides]
+    }));
+    return;
+  }
+  // Fall back to localStorage
+  try {
+    const saved = localStorage.getItem('slide-manager-state');
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    if (state.order && state.order.length === total) slideOrder = state.order;
+    if (state.hidden) hiddenSlides = new Set(state.hidden);
+  } catch(e) {}
+})();
+
+function saveSlideState() {
+  localStorage.setItem('slide-manager-state', JSON.stringify({
+    order: slideOrder,
+    hidden: [...hiddenSlides]
+  }));
+  // Keep URL hash in sync
+  const encoded = encodeSlideConfig();
+  history.replaceState(null, '', encoded ? '#' + encoded : window.location.pathname);
+}
 
 const sectionNames = {
   'title': '',
@@ -2063,31 +2238,59 @@ function getSectionColor(section) {
   return getComputedStyle(document.documentElement).getPropertyValue('--' + key).trim() || '#818cf8';
 }
 
-function goTo(n) {
-  if (n < 0 || n >= total) return;
-  slides[current].classList.remove('active');
-  current = n;
-  slides[current].classList.add('active');
+function getSlideTitle(domIndex) {
+  const s = slides[domIndex];
+  const h = s.querySelector('h1,h2,h3');
+  const label = s.querySelector('.label,.section-num');
+  let text = '';
+  if (label) text += label.textContent.trim() + ': ';
+  if (h) text += h.textContent.trim().replace(/\s+/g, ' ');
+  else text += s.textContent.trim().replace(/\s+/g, ' ');
+  return text.slice(0, 60);
+}
 
-  const pct = ((current + 1) / total) * 100;
+// goTo now takes index into visibleOrder
+function goTo(n) {
+  const vis = getVisibleOrder();
+  if (vis.length === 0) return;
+  if (n < 0) n = 0;
+  if (n >= vis.length) n = vis.length - 1;
+
+  // hide previous
+  const prevDom = vis[current] !== undefined ? vis[current] : vis[0];
+  if (prevDom !== undefined) slides[prevDom].classList.remove('active');
+
+  current = n;
+  const domIdx = vis[current];
+  slides[domIdx].classList.add('active');
+
+  const pct = ((current + 1) / vis.length) * 100;
   progress.style.width = pct + '%';
 
-  const section = slides[current].getAttribute('data-section') || 'title';
+  const section = slides[domIdx].getAttribute('data-section') || 'title';
   progress.style.background = getSectionColor(section);
-  counter.textContent = (current + 1) + ' / ' + total;
+  counter.textContent = (current + 1) + ' / ' + vis.length;
   sectionName.textContent = sectionNames[section] || '';
 
-  // Init visualization if present
-  initViz(current);
+  initViz(domIdx);
+  renderManagerHighlight();
+}
+
+// Jump to a specific DOM index (used by manager click)
+function goToDom(domIdx) {
+  const vis = getVisibleOrder();
+  const pos = vis.indexOf(domIdx);
+  if (pos >= 0) goTo(pos);
 }
 
 function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
 
 function nextSection() {
-  const currentSection = slides[current].getAttribute('data-section');
-  for (let i = current + 1; i < total; i++) {
-    if (slides[i].getAttribute('data-section') !== currentSection) {
+  const vis = getVisibleOrder();
+  const curSection = slides[vis[current]].getAttribute('data-section');
+  for (let i = current + 1; i < vis.length; i++) {
+    if (slides[vis[i]].getAttribute('data-section') !== curSection) {
       goTo(i);
       return;
     }
@@ -2095,17 +2298,16 @@ function nextSection() {
 }
 
 function prevSection() {
-  const currentSection = slides[current].getAttribute('data-section');
+  const vis = getVisibleOrder();
+  const curSection = slides[vis[current]].getAttribute('data-section');
   let sectionStart = current;
-  // Find start of current section
-  while (sectionStart > 0 && slides[sectionStart - 1].getAttribute('data-section') === currentSection) {
+  while (sectionStart > 0 && slides[vis[sectionStart - 1]].getAttribute('data-section') === curSection) {
     sectionStart--;
   }
   if (sectionStart === current && sectionStart > 0) {
-    // Go to start of previous section
-    const prevSec = slides[sectionStart - 1].getAttribute('data-section');
+    const prevSec = slides[vis[sectionStart - 1]].getAttribute('data-section');
     let i = sectionStart - 1;
-    while (i > 0 && slides[i - 1].getAttribute('data-section') === prevSec) {
+    while (i > 0 && slides[vis[i - 1]].getAttribute('data-section') === prevSec) {
       i--;
     }
     goTo(i);
@@ -2117,13 +2319,17 @@ function prevSection() {
 // Keyboard
 document.addEventListener('keydown', (e) => {
   keysHint.classList.add('hidden');
+  // If manager is open, Escape closes it
+  if (smPanel.classList.contains('open') && e.key === 'Escape') {
+    e.preventDefault(); toggleManager(); return;
+  }
   switch(e.key) {
     case 'ArrowRight': case ' ': case 'PageDown': e.preventDefault(); next(); break;
     case 'ArrowLeft': case 'PageUp': e.preventDefault(); prev(); break;
     case 'ArrowDown': e.preventDefault(); nextSection(); break;
     case 'ArrowUp': e.preventDefault(); prevSection(); break;
     case 'Home': e.preventDefault(); goTo(0); break;
-    case 'End': e.preventDefault(); goTo(total - 1); break;
+    case 'End': e.preventDefault(); goTo(getVisibleOrder().length - 1); break;
     case 'f': case 'F':
       e.preventDefault();
       if (!document.fullscreenElement) {
@@ -2135,6 +2341,14 @@ document.addEventListener('keydown', (e) => {
     case 't': case 'T':
       e.preventDefault();
       toggleTheme();
+      break;
+    case 'm': case 'M':
+      e.preventDefault();
+      toggleManager();
+      break;
+    case 'h': case 'H':
+      e.preventDefault();
+      toggleHideCurrent();
       break;
   }
 });
@@ -2165,6 +2379,8 @@ if (localStorage.getItem('slide-theme') === 'light') {
 // Click navigation
 document.addEventListener('click', (e) => {
   if (e.target.closest('#theme-toggle')) return;
+  if (e.target.closest('#slide-manager')) return;
+  if (smPanel.classList.contains('open')) { toggleManager(); return; }
   const x = e.clientX / window.innerWidth;
   if (x > 0.5) next(); else prev();
 });
@@ -2177,6 +2393,168 @@ document.addEventListener('touchend', (e) => {
   if (Math.abs(dx) > 50) {
     if (dx < 0) next(); else prev();
   }
+});
+
+// ============================================
+// SLIDE MANAGER
+// ============================================
+const smPanel = document.getElementById('slide-manager');
+const smList = document.getElementById('sm-list');
+
+function toggleManager() {
+  smPanel.classList.toggle('open');
+  if (smPanel.classList.contains('open')) renderManager();
+}
+
+function toggleHideCurrent() {
+  const vis = getVisibleOrder();
+  if (vis.length <= 1) return; // don't hide the last visible slide
+  const domIdx = vis[current];
+  hiddenSlides.add(domIdx);
+  saveSlideState();
+  // Stay at same position or go back one
+  if (current >= getVisibleOrder().length) current = getVisibleOrder().length - 1;
+  goTo(current);
+  if (smPanel.classList.contains('open')) renderManager();
+}
+
+function renderManager() {
+  smList.innerHTML = '';
+  const vis = getVisibleOrder();
+  slideOrder.forEach((domIdx, orderPos) => {
+    const div = document.createElement('div');
+    div.className = 'sm-item';
+    div.draggable = true;
+    div.dataset.orderPos = orderPos;
+    div.dataset.domIdx = domIdx;
+
+    const isHidden = hiddenSlides.has(domIdx);
+    const isCurrent = vis[current] === domIdx;
+    if (isHidden) div.classList.add('sm-hidden');
+    if (isCurrent) div.classList.add('sm-current');
+
+    const section = slides[domIdx].getAttribute('data-section') || 'title';
+    const visIdx = vis.indexOf(domIdx);
+    const displayNum = visIdx >= 0 ? (visIdx + 1) : '—';
+
+    div.innerHTML =
+      `<span class="sm-grip">⠿</span>` +
+      `<span class="sm-num">${displayNum}</span>` +
+      `<span class="sm-section">${section}</span>` +
+      `<span class="sm-title">${getSlideTitle(domIdx)}</span>` +
+      `<button class="sm-toggle" data-dom="${domIdx}">${isHidden ? '○' : '●'}</button>`;
+
+    // Click row → navigate to that slide
+    div.addEventListener('click', (e) => {
+      if (e.target.closest('.sm-toggle') || e.target.closest('.sm-grip')) return;
+      if (!isHidden) goToDom(domIdx);
+    });
+
+    // Toggle visibility button
+    div.querySelector('.sm-toggle').addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (hiddenSlides.has(domIdx)) {
+        hiddenSlides.delete(domIdx);
+      } else {
+        if (getVisibleOrder().length <= 1) return;
+        hiddenSlides.add(domIdx);
+      }
+      saveSlideState();
+      // Adjust current position
+      const newVis = getVisibleOrder();
+      const curDom = vis[current];
+      const newPos = newVis.indexOf(curDom);
+      if (newPos >= 0) current = newPos;
+      else if (current >= newVis.length) current = newVis.length - 1;
+      goTo(current);
+      renderManager();
+    });
+
+    // Drag & drop for reorder
+    div.addEventListener('dragstart', (e) => {
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', orderPos);
+      div.classList.add('dragging');
+    });
+    div.addEventListener('dragend', () => div.classList.remove('dragging'));
+    div.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      div.classList.add('drag-over');
+    });
+    div.addEventListener('dragleave', () => div.classList.remove('drag-over'));
+    div.addEventListener('drop', (e) => {
+      e.preventDefault();
+      div.classList.remove('drag-over');
+      const fromPos = parseInt(e.dataTransfer.getData('text/plain'));
+      const toPos = parseInt(div.dataset.orderPos);
+      if (fromPos === toPos) return;
+      // Remember current DOM slide
+      const curDom = getVisibleOrder()[current];
+      // Reorder
+      const [moved] = slideOrder.splice(fromPos, 1);
+      slideOrder.splice(toPos, 0, moved);
+      saveSlideState();
+      // Restore position to same DOM slide
+      const newVis = getVisibleOrder();
+      const newPos = newVis.indexOf(curDom);
+      if (newPos >= 0) current = newPos;
+      goTo(current);
+      renderManager();
+    });
+
+    smList.appendChild(div);
+  });
+}
+
+function renderManagerHighlight() {
+  if (!smPanel.classList.contains('open')) return;
+  const vis = getVisibleOrder();
+  const curDom = vis[current];
+  smList.querySelectorAll('.sm-item').forEach(el => {
+    el.classList.toggle('sm-current', parseInt(el.dataset.domIdx) === curDom);
+  });
+}
+
+// Manager buttons
+document.getElementById('sm-close').addEventListener('click', toggleManager);
+document.getElementById('sm-reset').addEventListener('click', () => {
+  const curDom = getVisibleOrder()[current];
+  slideOrder = [...DEFAULT_ORDER];
+  hiddenSlides = new Set(DEFAULT_HIDDEN);
+  saveSlideState();
+  const newVis = getVisibleOrder();
+  const newPos = newVis.indexOf(curDom);
+  if (newPos >= 0) current = newPos;
+  goTo(current);
+  renderManager();
+});
+document.getElementById('sm-show-all').addEventListener('click', () => {
+  const curDom = getVisibleOrder()[current];
+  hiddenSlides.clear();
+  saveSlideState();
+  const newVis = getVisibleOrder();
+  const newPos = newVis.indexOf(curDom);
+  if (newPos >= 0) current = newPos;
+  goTo(current);
+  renderManager();
+});
+document.getElementById('sm-copy-link').addEventListener('click', () => {
+  const btn = document.getElementById('sm-copy-link');
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy Link'; }, 1500);
+  }).catch(() => {
+    // Fallback: select from a temp input
+    const tmp = document.createElement('input');
+    tmp.value = window.location.href;
+    document.body.appendChild(tmp);
+    tmp.select();
+    document.execCommand('copy');
+    document.body.removeChild(tmp);
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy Link'; }, 1500);
+  });
 });
 
 // ============================================
